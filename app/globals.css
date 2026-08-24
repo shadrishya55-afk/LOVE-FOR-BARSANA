@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Quicksand:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Pacifico&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Quicksand:wght@300;400;500;600;700&display=swap');
 
 :root {
   --love-pink: #FF6B9D;
@@ -10,6 +10,7 @@
   --love-purple: #C084FC;
   --love-deep: #0a0015;
   --love-gold: #FFD700;
+  --love-amber: #FFB347;
 }
 
 * {
@@ -19,54 +20,146 @@
 }
 
 html, body {
-  overflow: hidden;
+  overflow-x: hidden;
   background: var(--love-deep);
   font-family: 'Quicksand', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  touch-action: none;
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 4px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: rgba(10, 0, 21, 0.8);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--love-pink);
-  border-radius: 2px;
+  background: linear-gradient(180deg, #FF6B9D, #FFD700, #C084FC);
+  border-radius: 3px;
 }
 
-/* Glow text utility */
+/* Dynamic background gradients */
+.bg-gradient-hero {
+  background: radial-gradient(circle at 50% 30%, rgba(255, 107, 157, 0.25) 0%, rgba(147, 51, 234, 0.2) 40%, rgba(10, 0, 21, 0.95) 80%);
+}
+
+.bg-gradient-love {
+  background: radial-gradient(circle at 50% 50%, rgba(255, 20, 147, 0.25) 0%, rgba(192, 132, 252, 0.2) 50%, rgba(15, 2, 25, 0.95) 85%);
+}
+
+.bg-gradient-cats {
+  background: radial-gradient(circle at 50% 50%, rgba(255, 179, 71, 0.22) 0%, rgba(255, 105, 180, 0.2) 45%, rgba(18, 4, 30, 0.95) 85%);
+}
+
+.bg-gradient-reasons {
+  background: radial-gradient(circle at 50% 50%, rgba(192, 132, 252, 0.25) 0%, rgba(255, 107, 157, 0.2) 50%, rgba(10, 0, 21, 0.95) 85%);
+}
+
+.bg-gradient-finale {
+  background: radial-gradient(circle at 50% 40%, rgba(255, 215, 0, 0.28) 0%, rgba(255, 20, 147, 0.22) 45%, rgba(12, 1, 22, 0.95) 85%);
+}
+
+/* Glow effects */
 .glow-text {
   text-shadow:
-    0 0 10px rgba(255, 107, 157, 0.6),
-    0 0 20px rgba(255, 107, 157, 0.4),
-    0 0 40px rgba(255, 107, 157, 0.2),
-    0 0 80px rgba(255, 107, 157, 0.1);
+    0 0 10px rgba(255, 107, 157, 0.8),
+    0 0 25px rgba(255, 107, 157, 0.5),
+    0 0 50px rgba(255, 107, 157, 0.3);
 }
 
 .glow-gold {
   text-shadow:
-    0 0 10px rgba(255, 215, 0, 0.6),
-    0 0 20px rgba(255, 215, 0, 0.4),
-    0 0 40px rgba(255, 215, 0, 0.2);
+    0 0 10px rgba(255, 215, 0, 0.8),
+    0 0 25px rgba(255, 215, 0, 0.5),
+    0 0 50px rgba(255, 215, 0, 0.3);
+}
+
+.glow-rasgulla {
+  text-shadow:
+    0 0 10px rgba(255, 200, 100, 0.9),
+    0 0 30px rgba(255, 170, 50, 0.6),
+    0 0 60px rgba(255, 105, 180, 0.4);
+}
+
+/* Mala / Garland animated ring */
+.mala-ring {
+  position: relative;
+  border-radius: 9999px;
+  padding: 8px;
+  background: linear-gradient(135deg, #FFD700, #FF69B4, #FFA500, #FF1493, #FFD700);
+  background-size: 300% 300%;
+  animation: malaGlow 4s ease infinite;
+  box-shadow:
+    0 0 25px rgba(255, 215, 0, 0.5),
+    0 0 50px rgba(255, 105, 180, 0.35);
+}
+
+@keyframes malaGlow {
+  0% { background-position: 0% 50%; box-shadow: 0 0 25px rgba(255, 215, 0, 0.6), 0 0 50px rgba(255, 105, 180, 0.4); }
+  50% { background-position: 100% 50%; box-shadow: 0 0 40px rgba(255, 105, 180, 0.7), 0 0 70px rgba(255, 215, 0, 0.5); }
+  100% { background-position: 0% 50%; box-shadow: 0 0 25px rgba(255, 215, 0, 0.6), 0 0 50px rgba(255, 105, 180, 0.4); }
+}
+
+/* Mala Beads effect */
+.mala-beads {
+  position: absolute;
+  inset: -6px;
+  border-radius: 9999px;
+  border: 3px dotted #FFD700;
+  pointer-events: none;
+  animation: spinSlow 25s linear infinite;
+}
+
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
 
 /* Glass card */
 .glass-card {
-  background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+}
+
+.glass-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 12px 40px 0 rgba(255, 105, 180, 0.3);
+}
+
+/* Meme card */
+.meme-card {
+  background: rgba(30, 10, 45, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 182, 193, 0.25);
+  border-radius: 18px;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.meme-card:hover {
+  transform: scale(1.04) rotate(-1deg);
+  border-color: rgba(255, 215, 0, 0.6);
+  box-shadow: 0 10px 30px rgba(255, 105, 180, 0.4);
 }
 
 /* Gradient text */
 .gradient-text {
-  background: linear-gradient(135deg, var(--love-pink), var(--love-gold), var(--love-purple));
+  background: linear-gradient(135deg, #FF9A8B 0%, #FF6A88 40%, #FFD700 70%, #FF69B4 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s linear infinite;
+}
+
+.gradient-gold {
+  background: linear-gradient(135deg, #FFE259 0%, #FFA751 50%, #FFD700 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   background-clip: text;
@@ -79,24 +172,7 @@ html, body {
   100% { background-position: 200% center; }
 }
 
-/* Fade in animation with stagger support */
-.fade-in-up {
-  opacity: 0;
-  animation: fadeInUp 0.8s ease-out forwards;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Section overlay base */
+/* Section overlay */
 .section-overlay {
   position: absolute;
   width: 100%;
@@ -114,9 +190,26 @@ html, body {
   pointer-events: auto;
 }
 
+/* Rasgulla badge */
+.rasgulla-badge {
+  background: linear-gradient(135deg, rgba(255, 215, 0, 0.25), rgba(255, 105, 180, 0.25));
+  border: 1px solid rgba(255, 215, 0, 0.5);
+  backdrop-filter: blur(8px);
+  border-radius: 9999px;
+  animation: rasgullaPulse 3s ease-in-out infinite;
+}
+
+@keyframes rasgullaPulse {
+  0%, 100% { transform: scale(1); box-shadow: 0 0 15px rgba(255, 215, 0, 0.3); }
+  50% { transform: scale(1.04); box-shadow: 0 0 25px rgba(255, 105, 180, 0.5); }
+}
+
 /* Font families */
 .font-cursive {
   font-family: 'Pacifico', cursive;
+}
+.font-caveat {
+  font-family: 'Caveat', cursive;
 }
 .font-display {
   font-family: 'Playfair Display', serif;

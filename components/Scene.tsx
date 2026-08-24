@@ -1,8 +1,9 @@
 'use client';
 
-import { Canvas } from '@react-three/fiber';
-import { ScrollControls, Scroll, Stars, Preload } from '@react-three/drei';
-import { Suspense } from 'react';
+import { Canvas, useFrame } from '@react-three/fiber';
+import { ScrollControls, Scroll, Stars, Preload, useScroll } from '@react-three/drei';
+import { Suspense, useRef } from 'react';
+import * as THREE from 'three';
 
 import { HeroSection3D, HeroOverlay } from './sections/HeroSection';
 import { LoveSection3D, LoveOverlay } from './sections/LoveSection';
@@ -12,32 +13,62 @@ import { FinaleSection3D, FinaleOverlay } from './sections/FinaleSection';
 
 const TOTAL_PAGES = 5;
 
+// Romantic color gradient sequence across the 5 sections
+const bgColors = [
+  new THREE.Color('#0d021f'), // Hero - Cosmic Velvet Violet
+  new THREE.Color('#380927'), // Love - Warm Sunset Rose
+  new THREE.Color('#2d0e3a'), // Cats - Playful Pastel Wine
+  new THREE.Color('#140529'), // Reasons - Starry Lilac Indigo
+  new THREE.Color('#340528'), // Finale - Celestial Golden Rose
+];
+
+function DynamicBackground() {
+  const scroll = useScroll();
+  const color = useRef(new THREE.Color('#0d021f'));
+
+  useFrame(({ scene }) => {
+    const offset = Math.min(Math.max(scroll.offset, 0), 1);
+    const progress = offset * (TOTAL_PAGES - 1);
+    const index = Math.min(Math.floor(progress), TOTAL_PAGES - 2);
+    const fraction = progress - index;
+
+    color.current.lerpColors(bgColors[index], bgColors[index + 1] || bgColors[index], fraction);
+    scene.background = color.current;
+    if (scene.fog) {
+      scene.fog.color = color.current;
+    }
+  });
+
+  return null;
+}
+
 function Experience() {
   return (
     <>
-      {/* ── Globals ── */}
-      <color attach="background" args={['#0a0015']} />
-      <fog attach="fog" args={['#0a0015', 8, 28]} />
+      {/* ── Dynamic gradient background ── */}
+      <color attach="background" args={['#0d021f']} />
+      <fog attach="fog" args={['#0d021f', 7, 30]} />
+      <DynamicBackground />
 
-      {/* ── Lighting ── */}
-      <ambientLight intensity={0.35} />
-      <directionalLight position={[5, 5, 5]} intensity={0.4} color="#FFE4E1" />
+      {/* ── Ambient & Directional Lighting ── */}
+      <ambientLight intensity={0.4} />
+      <directionalLight position={[5, 6, 5]} intensity={0.5} color="#FFE4E1" />
       <pointLight position={[10, 10, 10]} intensity={0.8} color="#FF69B4" distance={30} />
-      <pointLight position={[-10, -5, -5]} intensity={0.5} color="#C084FC" distance={25} />
+      <pointLight position={[-10, -5, -5]} intensity={0.6} color="#FFD700" distance={25} />
 
       {/* ── Star field ── */}
       <Stars
         radius={80}
         depth={60}
-        count={800}
+        count={900}
         factor={4}
-        saturation={0.4}
+        saturation={0.5}
         fade
         speed={0.8}
       />
 
       {/* ── Scroll-driven experience ── */}
-      <ScrollControls pages={TOTAL_PAGES} damping={0.25}>
+      <ScrollControls pages={TOTAL_PAGES} damping={0.22}>
         {/* 3D layer */}
         <Scroll>
           <HeroSection3D />

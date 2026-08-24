@@ -28,33 +28,34 @@ export function ReasonsSection3D() {
 
   return (
     <group ref={groupRef} position={[0, yOffset, 0]}>
-      {/* Lots of floating hearts */}
+      {/* Floating hearts */}
       <FloatingHearts
-        count={isMobile ? 25 : 50}
+        count={isMobile ? 25 : 55}
         area={[viewport.width, viewport.height, 5]}
-        colors={['#FF6B9D', '#FF1493', '#C084FC', '#FFD700', '#FF69B4']}
-        speed={0.8}
+        colors={['#FF6B9D', '#FF1493', '#C084FC', '#FFD700', '#FF69B4', '#FFA07A']}
+        speed={0.85}
       />
 
       {/* Multi-layer sparkles */}
       <Sparkles
-        count={isMobile ? 25 : 50}
+        count={isMobile ? 30 : 60}
         scale={[viewport.width * 0.9, viewport.height * 0.9, 5]}
         size={2.5}
-        speed={0.3}
+        speed={0.4}
         color="#C084FC"
       />
       <Sparkles
-        count={isMobile ? 15 : 30}
-        scale={[viewport.width * 0.5, viewport.height * 0.5, 3]}
-        size={1.5}
-        speed={0.6}
+        count={isMobile ? 20 : 40}
+        scale={[viewport.width * 0.6, viewport.height * 0.6, 3]}
+        size={1.8}
+        speed={0.7}
         color="#FFD700"
       />
 
-      {/* Lights */}
-      <pointLight position={[3, 3, 3]} intensity={0.8} color="#C084FC" distance={10} />
-      <pointLight position={[-3, -2, 2]} intensity={0.6} color="#FF1493" distance={8} />
+      {/* Atmospheric lighting */}
+      <pointLight position={[3, 3, 3]} intensity={0.9} color="#C084FC" distance={10} />
+      <pointLight position={[-3, -2, 2]} intensity={0.7} color="#FF1493" distance={8} />
+      <pointLight position={[0, -1, 3]} intensity={0.6} color="#FFB347" distance={8} />
     </group>
   );
 }
@@ -62,44 +63,49 @@ export function ReasonsSection3D() {
 /* ═══════════════════════  HTML OVERLAY  ═══════════════════════ */
 
 const reasons = [
-  '💛 Your smile lights up my entire day',
-  '💜 You make everything so much better',
-  '❤️ Your laugh is my favourite sound',
-  '💗 You are the strongest person I know',
-  '🧡 Every day with you is a new adventure',
-  '💖 You believe in me when I don\'t',
-  '💕 You are my home, my peace, my everything',
+  { emoji: '🍯', text: 'You are my sweetest Rasgulla — soft, kind-hearted, and bringing endless warmth.' },
+  { emoji: '✨', text: 'Your smile lights up even my darkest days in an instant.' },
+  { emoji: '💖', text: 'The way you care and love makes me the luckiest person alive.' },
+  { emoji: '🌸', text: 'Your laugh is my absolute favorite sound in the world.' },
+  { emoji: '🌙', text: 'You understand me and believe in me even when I doubt myself.' },
+  { emoji: '💫', text: 'Every moment spent with you becomes a treasured memory.' },
+  { emoji: '👑', text: 'You are not just my girlfriend, you are my home and my forever.' },
 ];
 
 export function ReasonsOverlay() {
   return (
     <div
-      className="section-overlay justify-center gap-6"
+      className="section-overlay justify-center gap-3 sm:gap-4 py-8"
       style={{ top: `${SECTION * 100}vh` }}
     >
       {/* Title */}
-      <h2 className="font-cursive text-2xl md:text-4xl gradient-text mb-2 text-center">
-        Reasons I Love You
-      </h2>
+      <div className="text-center mb-1">
+        <h2 className="font-cursive text-2xl sm:text-4xl md:text-5xl gradient-text glow-text text-center">
+          Why You Mean The World To Me
+        </h2>
+        <p className="text-pink-200/70 text-xs sm:text-sm mt-1">
+          Just a few of the infinite reasons I adore you 🍯💕
+        </p>
+      </div>
 
       {/* Reasons list */}
-      <div className="flex flex-col gap-3 max-w-sm md:max-w-md px-4">
+      <div className="flex flex-col gap-2 sm:gap-2.5 max-w-sm sm:max-w-lg md:max-w-xl px-3 w-full">
         {reasons.map((r, i) => (
           <div
             key={i}
-            className="glass-card px-4 py-3 fade-in-up"
-            style={{ animationDelay: `${0.1 + i * 0.2}s` }}
+            className="glass-card px-3.5 py-2.5 sm:py-3 flex items-center gap-3 fade-in-up"
+            style={{ animationDelay: `${0.1 + i * 0.15}s` }}
           >
-            <p className="text-white/90 text-sm md:text-base font-light text-center leading-relaxed">
-              {r}
+            <span className="text-lg sm:text-2xl flex-shrink-0">{r.emoji}</span>
+            <p className="text-white/95 text-xs sm:text-sm md:text-base font-light leading-relaxed">
+              {r.text}
             </p>
           </div>
         ))}
       </div>
 
-      {/* Closing */}
-      <p className="text-white/40 text-xs tracking-widest mt-2">
-        ...and a million more 💗
+      <p className="text-amber-200/70 text-xs tracking-widest mt-1">
+        ...and I fall in love with you more every single day 💗
       </p>
     </div>
   );

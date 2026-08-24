@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="happyFur" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF9C4"/>
+      <stop offset="100%" stop-color="#FFE082"/>
+    </linearGradient>
+  </defs>
+  <!-- Dancing pose body -->
+  <ellipse cx="100" cy="140" rx="35" ry="40" fill="url(#happyFur)"/>
+  <!-- Paws up dancing -->
+  <circle cx="55" cy="100" r="14" fill="#FFE082"/>
+  <circle cx="145" cy="100" r="14" fill="#FFE082"/>
+  <!-- Head -->
+  <ellipse cx="100" cy="85" rx="55" ry="48" fill="url(#happyFur)"/>
+  <!-- Ears -->
+  <polygon points="55,55 40,15 80,40" fill="#FFD54F"/>
+  <polygon points="57,50 48,25 74,40" fill="#FF80AB"/>
+  <polygon points="145,55 160,15 120,40" fill="#FFD54F"/>
+  <polygon points="143,50 152,25 126,40" fill="#FF80AB"/>
+  <!-- Closed Happy Dancing Eyes (^_^) -->
+  <path d="M68 80 Q78 70 88 80" stroke="#333" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M112 80 Q122 70 132 80" stroke="#333" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <!-- Happy Open Smile with Pink Tongue -->
+  <polygon points="100,85 96,80 104,80" fill="#FF4081"/>
+  <path d="M88 92 Q100 115 112 92 Z" fill="#D81B60"/>
+  <ellipse cx="100" cy="102" rx="7" ry="5" fill="#FF80AB"/>
+  <!-- Blush -->
+  <circle cx="62" cy="90" r="9" fill="#FF4081" opacity="0.6"/>
+  <circle cx="138" cy="90" r="9" fill="#FF4081" opacity="0.6"/>
+  <!-- Music Notes / Sparkles -->
+  <text x="30" y="45" font-size="24" fill="#FF4081">🎵</text>
+  <text x="150" y="45" font-size="24" fill="#FFD700">✨</text>
+</svg>

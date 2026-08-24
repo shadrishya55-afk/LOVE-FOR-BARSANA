@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="banana" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFE135"/>
+      <stop offset="100%" stop-color="#F5B041"/>
+    </linearGradient>
+    <radialGradient id="blush" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#FF69B4" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#FF69B4" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <!-- Banana Suit -->
+  <path d="M100 15 C45 35 30 115 50 170 C70 190 130 190 150 170 C170 115 155 35 100 15 Z" fill="url(#banana)" stroke="#D4AC0D" stroke-width="3"/>
+  <path d="M96 5 L104 5 L102 18 L98 18 Z" fill="#27AE60"/>
+  <!-- Cat Face Cutout -->
+  <circle cx="100" cy="95" r="42" fill="#FFFFFF"/>
+  <!-- Cat Ears -->
+  <polygon points="70,68 60,40 85,55" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="2"/>
+  <polygon points="70,65 64,47 80,57" fill="#FFB6C1"/>
+  <polygon points="130,68 140,40 115,55" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="2"/>
+  <polygon points="130,65 136,47 120,57" fill="#FFB6C1"/>
+  <!-- Big Crying Anime/Meme Eyes -->
+  <circle cx="82" cy="90" r="14" fill="#2C3E50"/>
+  <ellipse cx="80" cy="85" rx="5" ry="7" fill="#FFFFFF"/>
+  <circle cx="86" cy="94" r="3" fill="#85C1E9"/>
+  <!-- Tear waterfall -->
+  <path d="M78 98 C72 110 70 135 76 145 C82 135 80 110 78 98" fill="#5DADE2" opacity="0.85"/>
+  <circle cx="118" cy="90" r="14" fill="#2C3E50"/>
+  <ellipse cx="116" cy="85" rx="5" ry="7" fill="#FFFFFF"/>
+  <circle cx="122" cy="94" r="3" fill="#85C1E9"/>
+  <path d="M122 98 C128 110 130 135 124 145 C118 135 120 110 122 98" fill="#5DADE2" opacity="0.85"/>
+  <!-- Pink Nose & Cute Open Sad Mouth -->
+  <polygon points="100,97 96,93 104,93" fill="#FF69B4"/>
+  <path d="M94 104 Q100 116 106 104 Q100 100 94 104" fill="#E74C3C"/>
+  <!-- Blush -->
+  <circle cx="72" cy="98" r="8" fill="url(#blush)"/>
+  <circle cx="128" cy="98" r="8" fill="url(#blush)"/>
+  <!-- Whiskers -->
+  <line x1="62" y1="94" x2="45" y2="90" stroke="#BDC3C7" stroke-width="2" stroke-linecap="round"/>
+  <line x1="62" y1="100" x2="45" y2="102" stroke="#BDC3C7" stroke-width="2" stroke-linecap="round"/>
+  <line x1="138" y1="94" x2="155" y2="90" stroke="#BDC3C7" stroke-width="2" stroke-linecap="round"/>
+  <line x1="138" y1="100" x2="155" y2="102" stroke="#BDC3C7" stroke-width="2" stroke-linecap="round"/>
+  <!-- Floating Hearts around -->
+  <path d="M165 40 Q165 33 159 33 Q153 33 153 40 Q153 48 165 56 Q177 48 177 40 Q177 33 171 33 Q165 33 165 40" fill="#FF1493"/>
+  <path d="M35 50 Q35 45 30 45 Q25 45 25 50 Q25 56 35 62 Q45 56 45 50 Q45 45 40 45 Q35 45 35 50" fill="#FF69B4"/>
+</svg>

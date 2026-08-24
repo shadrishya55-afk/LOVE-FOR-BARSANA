@@ -4,6 +4,7 @@ import { useRef } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
 import { Sparkles, useScroll } from '@react-three/drei';
 import * as THREE from 'three';
+import Image from 'next/image';
 import CuteCat from '../three/CuteCat';
 
 /* ═══════════════════════  3D CONTENT  ═══════════════════════ */
@@ -18,7 +19,7 @@ export function CatsSection3D() {
   const isMobile = viewport.width < 6;
   const yOffset = -SECTION * viewport.height;
 
-  const spread = isMobile ? 0.6 : 1;
+  const spread = isMobile ? 0.65 : 1.15;
 
   useFrame(() => {
     if (!groupRef.current) return;
@@ -30,89 +31,142 @@ export function CatsSection3D() {
 
   return (
     <group ref={groupRef} position={[0, yOffset, 0]}>
-      {/* Three cute cats */}
+      {/* 3D Cute Cats with different colors/variants */}
       <CuteCat
-        position={[-2.5 * spread, -0.5, 0]}
+        position={[-2.6 * spread, -0.6, 0.2]}
         color="#FFA07A"
-        scale={isMobile ? 0.9 : 1.2}
+        scale={isMobile ? 0.9 : 1.25}
         variant="sitting"
       />
       <CuteCat
-        position={[0, 0.3, 0.5]}
-        color="#DDA0DD"
-        scale={isMobile ? 1 : 1.4}
+        position={[0, 0.4, 0.5]}
+        color="#F48FB1"
+        scale={isMobile ? 1.05 : 1.45}
         variant="waving"
       />
       <CuteCat
-        position={[2.5 * spread, -0.8, -0.5]}
-        color="#87CEEB"
-        scale={isMobile ? 0.85 : 1.1}
+        position={[2.6 * spread, -0.8, -0.3]}
+        color="#FFE082"
+        scale={isMobile ? 0.85 : 1.15}
         variant="sleeping"
       />
 
-      {/* Fun sparkles */}
+      {/* Sparkles */}
       <Sparkles
-        count={isMobile ? 20 : 45}
-        scale={[viewport.width * 0.8, viewport.height * 0.7, 4]}
-        size={isMobile ? 2 : 3}
+        count={isMobile ? 25 : 55}
+        scale={[viewport.width * 0.85, viewport.height * 0.75, 4]}
+        size={isMobile ? 2.5 : 3.5}
         speed={0.8}
         color="#FFD700"
       />
       <Sparkles
-        count={isMobile ? 10 : 25}
+        count={isMobile ? 15 : 30}
         scale={[viewport.width * 0.6, viewport.height * 0.5, 3]}
         size={2}
-        speed={1.2}
+        speed={1.1}
         color="#FF69B4"
       />
 
-      {/* Warm lighting */}
-      <pointLight position={[0, 3, 3]} intensity={1} color="#FFDAB9" distance={10} />
-      <pointLight position={[-3, -1, 2]} intensity={0.5} color="#DDA0DD" distance={8} />
+      {/* Lighting */}
+      <pointLight position={[0, 3, 3]} intensity={1.2} color="#FFDAB9" distance={10} />
+      <pointLight position={[-3, -1, 2]} intensity={0.6} color="#F48FB1" distance={8} />
+      <pointLight position={[3, -1, 2]} intensity={0.6} color="#FFE082" distance={8} />
     </group>
   );
 }
 
 /* ═══════════════════════  HTML OVERLAY  ═══════════════════════ */
 
-const catPuns = [
-  { emoji: '😻', text: "You're absolutely purr-fect!" },
-  { emoji: '🐱', text: "I'm not kitten — you're amazing!" },
-  { emoji: '😸', text: "You've got to be kitten me with that smile!" },
-  { emoji: '💕', text: "I love you meow and furever!" },
+const memeCats = [
+  {
+    image: 'banana-cat.svg',
+    tag: '🍌 Banana Cat Meme',
+    caption: 'When you haven\'t texted me in 0.0001 seconds (Emotional damage 😿)',
+  },
+  {
+    image: 'polite-cat.svg',
+    tag: '🤵 Polite Ollie Cat',
+    caption: 'Me politely waiting for my Rasgulla to wake up and tell me about her day :]',
+  },
+  {
+    image: 'heart-eyes-cat.svg',
+    tag: '😻 Heart Eyes Meme',
+    caption: 'My honest live reaction every time I look at your photos 💖',
+  },
+  {
+    image: 'crying-thumbs-up-cat.svg',
+    tag: '👍 Crying Thumbs Up',
+    caption: 'Me holding back happy tears because you exist and you\'re mine 😭💕',
+  },
+  {
+    image: 'pop-cat.svg',
+    tag: '😮 Pop Cat (POP POP)',
+    caption: 'My heartbeat accelerating every time you send a voice note 💓',
+  },
+  {
+    image: 'happy-dance-cat.svg',
+    tag: '💃 Happy Happy Cat',
+    caption: 'Me doing a victory dance whenever you say "I love you" 🕺✨',
+  },
 ];
 
 export function CatsOverlay() {
+  const basePath = process.env.NODE_ENV === 'production' ? '/LOVE-FOR-BARSANA' : '';
+
   return (
     <div
-      className="section-overlay justify-between py-14"
+      className="section-overlay justify-center py-8 sm:py-12"
       style={{ top: `${SECTION * 100}vh` }}
     >
       {/* Title */}
-      <div className="text-center">
-        <h2 className="font-cursive text-2xl md:text-4xl text-yellow-200 glow-gold">
-          Even the Cats Agree...
+      <div className="text-center mb-4 sm:mb-6">
+        <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-pink-500/20 border border-pink-400/40 text-pink-300 text-xs tracking-wider uppercase mb-2">
+          <span>🐾</span>
+          <span>Instagram Cat Memes for You</span>
+          <span>🐾</span>
+        </div>
+        <h2 className="font-cursive text-2xl sm:text-4xl md:text-5xl text-yellow-200 glow-gold">
+          The Cats Are Obsessed With You Too!
         </h2>
-        <p className="text-white/50 text-xs md:text-sm mt-2 tracking-wider">
-          🐾 you&apos;re the best human ever 🐾
+        <p className="text-pink-200/70 text-xs sm:text-sm mt-1">
+          Every meme cat accurately represents my love for you 🐱❤️
         </p>
       </div>
 
-      {/* Puns */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4 max-w-lg px-4">
-        {catPuns.map((p, i) => (
+      {/* Grid of Instagram Cat Memes */}
+      <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 sm:gap-4 max-w-2xl px-3 w-full">
+        {memeCats.map((m, i) => (
           <div
             key={i}
-            className="glass-card px-4 py-3 text-center fade-in-up"
-            style={{ animationDelay: `${0.2 + i * 0.3}s` }}
+            className="meme-card p-2.5 sm:p-3.5 flex flex-col items-center text-center cursor-pointer group"
           >
-            <span className="text-2xl md:text-3xl block mb-1">{p.emoji}</span>
-            <p className="text-white/85 text-sm md:text-base font-medium">{p.text}</p>
+            {/* Meme Avatar / SVG */}
+            <div className="relative w-14 h-14 sm:w-18 sm:h-18 md:w-20 md:h-20 mb-2 transform group-hover:scale-110 transition-transform duration-300">
+              <Image
+                src={`${basePath}/images/${m.image}`}
+                alt={m.tag}
+                fill
+                className="object-contain drop-shadow-lg"
+              />
+            </div>
+
+            {/* Meme Tag */}
+            <span className="text-[10px] sm:text-xs font-semibold text-amber-300 bg-amber-400/15 px-2 py-0.5 rounded-md mb-1.5 border border-amber-300/30">
+              {m.tag}
+            </span>
+
+            {/* Caption */}
+            <p className="text-white/90 text-[11px] sm:text-xs font-medium leading-snug">
+              {m.caption}
+            </p>
           </div>
         ))}
       </div>
 
-      <div />
+      {/* Bottom text */}
+      <p className="text-white/40 text-[11px] sm:text-xs tracking-widest mt-4">
+        🐾 Certified 100% Purr-fect Girlfriend 🐾
+      </p>
     </div>
   );
 }

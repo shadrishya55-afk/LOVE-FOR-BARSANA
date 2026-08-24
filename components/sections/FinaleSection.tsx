@@ -29,31 +29,31 @@ export function FinaleSection3D() {
 
   return (
     <group ref={groupRef} position={[0, yOffset, 0]}>
-      {/* Waving 3D cat */}
+      {/* Waving 3D Cat with warm colors */}
       <CuteCat
-        position={[isMobile ? 0 : 2.5, isMobile ? -1.8 : -1.2, 0]}
+        position={[isMobile ? 0 : 2.6, isMobile ? -1.9 : -1.2, 0]}
         color="#FFA07A"
-        scale={isMobile ? 0.95 : 1.2}
+        scale={isMobile ? 0.95 : 1.25}
         variant="waving"
       />
 
       {/* Sparkles celebration */}
       <Sparkles
-        count={isMobile ? 40 : 80}
+        count={isMobile ? 45 : 90}
         scale={[viewport.width, viewport.height, 6]}
         size={isMobile ? 3 : 5}
         speed={0.5}
         color="#FFD700"
       />
       <Sparkles
-        count={isMobile ? 30 : 60}
-        scale={[viewport.width * 0.8, viewport.height * 0.8, 4]}
+        count={isMobile ? 35 : 70}
+        scale={[viewport.width * 0.85, viewport.height * 0.85, 4]}
         size={3}
         speed={0.8}
         color="#FF69B4"
       />
       <Sparkles
-        count={isMobile ? 20 : 40}
+        count={isMobile ? 25 : 45}
         scale={[viewport.width * 0.6, viewport.height * 0.6, 3]}
         size={2}
         speed={1.2}
@@ -62,16 +62,16 @@ export function FinaleSection3D() {
 
       {/* Floating hearts celebration */}
       <FloatingHearts
-        count={isMobile ? 30 : 60}
+        count={isMobile ? 35 : 65}
         area={[viewport.width, viewport.height * 1.2, 5]}
-        colors={['#FF6B9D', '#FF1493', '#FFD700', '#C084FC', '#FF69B4', '#E91E63']}
+        colors={['#FF6B9D', '#FF1493', '#FFD700', '#C084FC', '#FF69B4', '#FFA07A']}
         speed={1.2}
       />
 
       {/* Celebration lights */}
-      <pointLight position={[0, 3, 3]} intensity={1.5} color="#FFD700" distance={12} />
-      <pointLight position={[-3, -1, 2]} intensity={0.8} color="#FF1493" distance={10} />
-      <pointLight position={[3, 1, 1]} intensity={0.6} color="#C084FC" distance={8} />
+      <pointLight position={[0, 3, 3]} intensity={1.6} color="#FFD700" distance={12} />
+      <pointLight position={[-3, -1, 2]} intensity={0.9} color="#FF1493" distance={10} />
+      <pointLight position={[3, 1, 1]} intensity={0.8} color="#C084FC" distance={8} />
     </group>
   );
 }
@@ -81,52 +81,54 @@ export function FinaleSection3D() {
 export function FinaleOverlay() {
   return (
     <div
-      className="section-overlay justify-center gap-6"
+      className="section-overlay justify-center gap-4 sm:gap-6"
       style={{ top: `${SECTION * 100}vh` }}
     >
-      <div className="text-center px-4">
-        <p className="text-white/60 text-sm md:text-base tracking-[0.3em] uppercase mb-4 fade-in-up">
-          with all my heart
-        </p>
+      <div className="text-center px-4 max-w-xl">
+        <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-amber-400/20 border border-amber-300/40 text-amber-200 text-xs tracking-widest uppercase mb-3 fade-in-up">
+          <span>👑</span>
+          <span>To My Beloved Rasgulla</span>
+          <span>👑</span>
+        </div>
 
         <h1
-          className="font-cursive text-4xl md:text-6xl lg:text-7xl glow-text text-pink-200 mb-3 fade-in-up"
+          className="font-cursive text-4xl sm:text-6xl md:text-7xl lg:text-8xl glow-text text-pink-200 mb-2 fade-in-up"
           style={{ animationDelay: '0.4s' }}
         >
           I Love You
         </h1>
 
         <h2
-          className="font-display text-xl md:text-3xl text-love-gold glow-gold tracking-wider fade-in-up font-semibold"
+          className="font-display text-2xl sm:text-4xl md:text-5xl gradient-gold glow-gold tracking-wider fade-in-up font-bold"
           style={{ animationDelay: '0.8s' }}
         >
           Barsana Mukhopadhyay
         </h2>
 
         <div
-          className="mt-8 fade-in-up"
+          className="mt-6 sm:mt-8 fade-in-up"
           style={{ animationDelay: '1.2s' }}
         >
-          <p className="text-white/80 text-base md:text-lg font-light leading-relaxed max-w-md mx-auto font-display italic">
+          <p className="text-white/85 text-sm sm:text-base md:text-lg font-light leading-relaxed max-w-md mx-auto font-display italic">
             &ldquo;In all the world, there is no heart for me like yours.
             In all the world, there is no love for you like mine.&rdquo;
           </p>
         </div>
 
         <div
-          className="mt-10 flex items-center justify-center gap-3 text-2xl md:text-3xl fade-in-up"
+          className="mt-8 sm:mt-10 flex items-center justify-center gap-3 text-2xl sm:text-3xl fade-in-up"
           style={{ animationDelay: '1.6s' }}
         >
           <span className="animate-pulse-heart">💕</span>
-          <span className="text-white/80 text-base md:text-lg font-light tracking-widest">
-            Forever &amp; Always
+          <span className="text-pink-200 text-sm sm:text-lg font-medium tracking-widest uppercase">
+            Forever &amp; Always Yours
           </span>
           <span className="animate-pulse-heart">💕</span>
         </div>
       </div>
 
-      <p className="absolute bottom-6 text-white/20 text-xs tracking-widest">
-        made with all my love 💕
+      <p className="absolute bottom-5 text-white/30 text-[11px] tracking-widest">
+        Made with all my love for Barsana 🍯✨
       </p>
     </div>
   );

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="politeFur" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F5F5F5"/>
+      <stop offset="100%" stop-color="#E0E0E0"/>
+    </linearGradient>
+  </defs>
+  <!-- Head -->
+  <ellipse cx="100" cy="105" rx="65" ry="55" fill="url(#politeFur)" stroke="#D6D6D6" stroke-width="2"/>
+  <!-- Ears -->
+  <polygon points="50,75 35,25 75,55" fill="#E8E8E8" stroke="#D6D6D6" stroke-width="2"/>
+  <polygon points="52,70 42,35 70,55" fill="#FFB6C1"/>
+  <polygon points="150,75 165,25 125,55" fill="#E8E8E8" stroke="#D6D6D6" stroke-width="2"/>
+  <polygon points="148,70 158,35 130,55" fill="#FFB6C1"/>
+  <!-- Distinct Polite Cat Smile Lines & Wide Staring Eyes -->
+  <circle cx="75" cy="95" r="12" fill="#2C3E50"/>
+  <circle cx="72" cy="92" r="4" fill="#FFFFFF"/>
+  <circle cx="125" cy="95" r="12" fill="#2C3E50"/>
+  <circle cx="122" cy="92" r="4" fill="#FFFFFF"/>
+  <!-- Cute Pink Nose -->
+  <polygon points="100,105 95,100 105,100" fill="#FF69B4"/>
+  <!-- Iconic awkward tight-lipped polite smile :] -->
+  <path d="M70 115 Q100 110 130 115" stroke="#333" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M70 115 Q66 110 68 106" stroke="#333" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+  <path d="M130 115 Q134 110 132 106" stroke="#333" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+  <!-- Cheeks Blush -->
+  <circle cx="62" cy="108" r="10" fill="#FFB6C1" opacity="0.6"/>
+  <circle cx="138" cy="108" r="10" fill="#FFB6C1" opacity="0.6"/>
+  <!-- Bowtie for maximum politeness -->
+  <polygon points="100,155 80,145 80,165" fill="#FF1493"/>
+  <polygon points="100,155 120,145 120,165" fill="#FF1493"/>
+  <circle cx="100" cy="155" r="6" fill="#FFD700"/>
+  <!-- Whiskers -->
+  <line x1="55" y1="102" x2="30" y2="100" stroke="#999" stroke-width="2" stroke-linecap="round"/>
+  <line x1="55" y1="108" x2="30" y2="112" stroke="#999" stroke-width="2" stroke-linecap="round"/>
+  <line x1="145" y1="102" x2="170" y2="100" stroke="#999" stroke-width="2" stroke-linecap="round"/>
+  <line x1="145" y1="108" x2="170" y2="112" stroke="#999" stroke-width="2" stroke-linecap="round"/>
+</svg>
