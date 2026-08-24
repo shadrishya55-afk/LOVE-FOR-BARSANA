@@ -1076,7 +1076,6 @@ export default function LovePlatformer() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       ctx.save();
 
-      const g = gameRef.current;
       const camX = g.cameraX;
 
       // 1. DYNAMIC ZONE SKY GRADIENT (Smooth transition based on Camera X)
