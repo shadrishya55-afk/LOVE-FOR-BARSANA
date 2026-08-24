@@ -51,16 +51,16 @@ export default function CatsSection() {
     >
       {/* Title */}
       <div className="text-center mb-8 max-w-xl">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-pink-500/20 border border-pink-400/40 text-pink-300 text-xs tracking-wider uppercase mb-3">
+        <div className="inline-flex items-center gap-2 px-5 py-1.5 rounded-full bg-pink-500/20 border border-pink-400/40 text-pink-300 text-xs tracking-widest uppercase mb-3 shadow-md">
           <span>🐾</span>
-          <span>Our Daily Moods &amp; Memes</span>
+          <span>50 Shades of Cats</span>
           <span>🐾</span>
         </div>
-        <h2 className="font-cursive text-3xl sm:text-5xl md:text-6xl text-amber-200 glow-gold">
-          The Cats Are In Love With You Too!
+        <h2 className="font-luxury font-bold text-4xl sm:text-6xl md:text-7xl gradient-text glow-text">
+          50 Shades of Cats
         </h2>
-        <p className="text-pink-200/80 text-sm sm:text-base mt-2">
-          Every funny mood accurately describes how deeply I adore you 🐱❤️
+        <p className="text-pink-200/85 text-xs sm:text-sm md:text-base mt-2 font-normal">
+          Every mood of our love accurately represented by the internet&apos;s cutest cats 🐱❤️
         </p>
       </div>
 
@@ -82,7 +82,7 @@ export default function CatsSection() {
             </div>
 
             {/* Caption */}
-            <p className="text-white/95 text-xs sm:text-sm font-medium leading-relaxed">
+            <p className="text-white/95 text-xs sm:text-sm font-medium leading-relaxed text-center">
               {m.caption}
             </p>
           </div>

@@ -17,8 +17,9 @@ const bgColors = [
   new THREE.Color('#28135c'), // 2: Mystic Royal Violet (Our Story)
   new THREE.Color('#4c1264'), // 3: Twilight Magenta (Love Story)
   new THREE.Color('#6e1363'), // 4: Sunset Berry Rose (Cat Memes)
-  new THREE.Color('#94125d'), // 5: Passionate Rose Plum (Reasons)
-  new THREE.Color('#c2185b'), // 6: Radiant Celestial Rose Pink (Finale)
+  new THREE.Color('#85125e'), // 5: Passionate Berry Plum (Mini Game)
+  new THREE.Color('#9e125d'), // 6: Sunset Rose Plum (Reasons)
+  new THREE.Color('#c2185b'), // 7: Radiant Celestial Rose Pink (Finale)
 ];
 
 const heartColors = [
@@ -94,7 +95,7 @@ function World({ scrollY }: { scrollY: number }) {
     const progress = Math.min(Math.max(scrollY / maxScroll, 0), 1);
 
     // Camera travels smoothly across all sections
-    const targetY = -progress * 28;
+    const targetY = -progress * 34;
     cameraTargetY.current = THREE.MathUtils.lerp(cameraTargetY.current, targetY, 0.08);
     camera.position.y = cameraTargetY.current;
 
@@ -113,58 +114,69 @@ function World({ scrollY }: { scrollY: number }) {
   return (
     <>
       {/* ── Global Subtle Floating Hearts in Background ── */}
-      <FloatingHearts count={40} area={[16, 36, 6]} colors={heartColors} speed={0.65} />
+      <FloatingHearts count={45} area={[16, 42, 6]} colors={heartColors} speed={0.65} />
 
-      {/* ── Scene 0 (Hero - Sapphire Blue World): 3D Balloons & Glow ── */}
+      {/* ── Scene 0 (Hero): 3D Balloons, Glow & Floating Welcome Cat ── */}
       <group position={[0, 0, 0]}>
+        <CuteCat position={[2.5, 0.8, -0.4]} color="#FFA07A" scale={0.9} variant="waving" />
         <BalloonHeart position={[-2.5, 1.2, -0.6]} color="#60A5FA" scale={0.85} speed={1.1} />
         <BalloonHeart position={[2.6, 1.4, -0.5]} color="#C084FC" scale={0.9} speed={0.9} />
         <BalloonHeart position={[-2.1, -1.0, -1.2]} color="#F472B6" scale={0.7} speed={1.3} />
         <BalloonHeart position={[2.2, -0.9, -1.0]} color="#FBBF24" scale={0.75} speed={1.0} />
-        <BalloonHeart position={[-1.2, 2.0, -1.0]} color="#38BDF8" scale={0.65} speed={1.2} />
-        <BalloonHeart position={[1.3, 2.1, -1.3]} color="#FB7185" scale={0.6} speed={0.8} />
         <Sparkles count={70} scale={[14, 10, 5]} size={3.5} speed={0.4} color="#60A5FA" />
         <Sparkles count={45} scale={[10, 8, 4]} size={2.5} speed={0.6} color="#FBBF24" />
       </group>
 
-      {/* ── Scene 1 (Gallery - Twilight Indigo): Starry Glow ── */}
+      {/* ── Scene 1 (Gallery): 3D Playful Cat & Starry Dust ── */}
       <group position={[0, -5, 0]}>
-        <FloatingHearts count={30} area={[14, 10, 5]} colors={['#60A5FA', '#C084FC', '#F472B6']} speed={0.8} />
+        <CuteCat position={[-2.6, 0.4, 0.1]} color="#FFE082" scale={0.95} variant="sitting" />
+        <FloatingHearts count={25} area={[14, 8, 5]} colors={['#60A5FA', '#C084FC', '#F472B6']} speed={0.8} />
         <Sparkles count={55} scale={[12, 9, 5]} size={3} speed={0.5} color="#A78BFA" />
         <pointLight position={[0, 2, 2]} intensity={1.2} color="#A78BFA" distance={12} />
       </group>
 
-      {/* ── Scene 2 (Our Story - Royal Violet): Romantic Light ── */}
+      {/* ── Scene 2 (Our Story): Romantic Heart, Petals & Loving Cats ── */}
       <group position={[0, -10, 0]}>
+        <CuteCat position={[2.5, -0.5, 0.3]} color="#F48FB1" scale={1.0} variant="waving" />
         <BigHeart position={[0, 0.6, 0]} />
         <RosePetals count={40} area={[14, 10, 5]} />
         <Sparkles count={60} scale={[12, 8, 4]} size={3} speed={0.6} color="#F472B6" />
         <pointLight position={[2, 2, 2]} intensity={1.2} color="#F472B6" distance={12} />
       </group>
 
-      {/* ── Scene 3 (Cats - Twilight Magenta): 3D Cute Cats ── */}
+      {/* ── Scene 3 (Cat Memes): 3D Cat Trio ── */}
       <group position={[0, -16, 0]}>
-        <CuteCat position={[-2.4, -0.5, 0.2]} color="#FFA07A" scale={1.1} variant="sitting" />
-        <CuteCat position={[0, 0.3, 0.6]} color="#F48FB1" scale={1.35} variant="waving" />
-        <CuteCat position={[2.4, -0.7, -0.2]} color="#FFE082" scale={1.05} variant="sleeping" />
+        <CuteCat position={[-2.4, -0.5, 0.2]} color="#FFA07A" scale={1.15} variant="sitting" />
+        <CuteCat position={[0, 0.3, 0.6]} color="#F48FB1" scale={1.4} variant="waving" />
+        <CuteCat position={[2.4, -0.7, -0.2]} color="#FFE082" scale={1.1} variant="sleeping" />
         <Sparkles count={60} scale={[12, 9, 5]} size={3} speed={0.9} color="#FBBF24" />
         <Sparkles count={40} scale={[8, 6, 3]} size={2.5} speed={1.2} color="#F472B6" />
         <pointLight position={[0, 3, 3]} intensity={1.4} color="#FFDAB9" distance={14} />
       </group>
 
-      {/* ── Scene 4 (Reasons - Sunset Rose): Floating Hearts Cascade ── */}
+      {/* ── Scene 4 (Mini Game): Cheerleader 3D Cat ── */}
       <group position={[0, -22, 0]}>
+        <CuteCat position={[-2.7, 0.5, 0.2]} color="#FFE082" scale={1.1} variant="waving" />
+        <CuteCat position={[2.7, -0.4, 0.1]} color="#FFA07A" scale={1.05} variant="sitting" />
+        <FloatingHearts count={35} area={[14, 10, 5]} colors={heartColors} speed={1.1} />
+        <Sparkles count={60} scale={[12, 10, 5]} size={3.5} speed={0.7} color="#FBBF24" />
+      </group>
+
+      {/* ── Scene 5 (Reasons): Sunset Rose Hearts & Sleeping Sweet Cat ── */}
+      <group position={[0, -28, 0]}>
+        <CuteCat position={[-2.5, -0.6, 0.1]} color="#F48FB1" scale={1.1} variant="sleeping" />
         <FloatingHearts count={50} area={[14, 10, 5]} colors={heartColors} speed={0.95} />
         <Sparkles count={60} scale={[12, 10, 5]} size={3} speed={0.5} color="#EC4899" />
         <pointLight position={[3, 3, 3]} intensity={1.2} color="#EC4899" distance={12} />
       </group>
 
-      {/* ── Scene 5 (Finale - Celestial Pink): Waving Cat & Celebration Fireworks ── */}
-      <group position={[0, -28, 0]}>
-        <CuteCat position={[2.2, -0.8, 0.2]} color="#FFA07A" scale={1.2} variant="waving" />
-        <FloatingHearts count={70} area={[14, 12, 6]} colors={heartColors} speed={1.3} />
-        <Sparkles count={90} scale={[14, 12, 6]} size={4.5} speed={0.7} color="#FBBF24" />
-        <Sparkles count={70} scale={[10, 10, 4]} size={3.5} speed={1.0} color="#F43F5E" />
+      {/* ── Scene 6 (Finale): Celebration Fireworks & Happy Dancing Cat ── */}
+      <group position={[0, -34, 0]}>
+        <CuteCat position={[2.2, -0.8, 0.2]} color="#FFA07A" scale={1.3} variant="waving" />
+        <CuteCat position={[-2.2, -0.8, -0.1]} color="#FFE082" scale={1.15} variant="sitting" />
+        <FloatingHearts count={75} area={[14, 12, 6]} colors={heartColors} speed={1.3} />
+        <Sparkles count={95} scale={[14, 12, 6]} size={4.5} speed={0.7} color="#FBBF24" />
+        <Sparkles count={75} scale={[10, 10, 4]} size={3.5} speed={1.0} color="#F43F5E" />
         <pointLight position={[0, 3, 3]} intensity={2.2} color="#FBBF24" distance={18} />
       </group>
     </>
@@ -196,7 +208,7 @@ export default function Scene() {
       >
         <Suspense fallback={null}>
           <color attach="background" args={['#05133d']} />
-          <fog attach="fog" args={['#05133d', 8, 34]} />
+          <fog attach="fog" args={['#05133d', 8, 36]} />
 
           {/* Lights */}
           <ambientLight intensity={0.55} />
