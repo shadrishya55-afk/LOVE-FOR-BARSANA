@@ -6,59 +6,64 @@ export default function HeroSection() {
   const basePath = process.env.NODE_ENV === 'production' ? '/LOVE-FOR-BARSANA' : '';
 
   return (
-    <section id="hero" className="min-h-screen w-full flex flex-col items-center justify-center text-center px-4 py-16 relative">
-      <div className="flex flex-col items-center justify-center max-w-lg w-full z-10">
-        {/* Rasgulla Badge */}
-        <div className="rasgulla-badge px-5 py-2 mb-5 flex items-center gap-2 shadow-lg">
+    <section
+      id="hero"
+      className="min-h-screen w-full flex flex-col items-center justify-center text-center px-4 py-16 relative"
+    >
+      <div className="flex flex-col items-center justify-center max-w-xl w-full z-10">
+        {/* Rasgulla Honey Badge */}
+        <div className="rasgulla-badge px-6 py-2 mb-6 flex items-center gap-2.5 shadow-xl">
           <span className="text-xl">🍯</span>
-          <span className="text-amber-200 text-xs sm:text-sm font-bold tracking-wider uppercase">
+          <span className="text-amber-200 text-xs sm:text-sm font-bold tracking-widest uppercase">
             She&apos;s My Beloved Rasgulla
           </span>
           <span className="text-xl">✨</span>
         </div>
 
         {/* Her Photo Framed in Glowing Mala / Garland */}
-        <div className="relative mb-5 group">
-          <div className="mala-ring w-40 h-40 sm:w-48 sm:h-48 md:w-52 md:h-52">
+        <div className="relative mb-6 group">
+          <div className="mala-ring w-44 h-44 sm:w-52 sm:h-52 md:w-56 md:h-56">
             <div className="mala-beads" />
-            <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-amber-300/80 shadow-2xl bg-love-deep">
+            <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-amber-300/80 shadow-2xl bg-love-sapphire">
               <Image
                 src={`${basePath}/images/barsana.jpg`}
                 alt="Barsana Mukhopadhyay"
                 fill
                 priority
-                className="object-cover object-center transform group-hover:scale-105 transition-transform duration-500"
-                sizes="(max-width: 768px) 192px, 208px"
+                className="object-cover object-center transform group-hover:scale-108 transition-transform duration-500"
+                sizes="(max-width: 768px) 208px, 224px"
               />
             </div>
           </div>
 
           {/* Floating mini heart badges around portrait */}
-          <div className="absolute -top-1 -right-1 bg-pink-500/95 text-white text-xs px-2.5 py-0.5 rounded-full shadow-lg border border-white/30 animate-bounce">
-            💕 Mine
+          <div className="absolute -top-1 -right-2 bg-pink-500/95 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-xl border border-white/30 animate-bounce">
+            💕 Mine Forever
           </div>
-          <div className="absolute -bottom-2 -left-2 bg-amber-500/95 text-white text-xs px-2.5 py-0.5 rounded-full shadow-lg border border-white/30">
-            🌸 Sweetest
+          <div className="absolute -bottom-2 -left-2 bg-amber-500/95 text-white text-xs font-semibold px-3 py-1 rounded-full shadow-xl border border-white/30">
+            🌸 My Sweetest
           </div>
         </div>
 
-        {/* Name */}
-        <h1 className="font-display font-bold text-4xl sm:text-6xl md:text-7xl gradient-text glow-text tracking-wider leading-tight">
+        {/* Name in Luxury Serif & Calligraphy */}
+        <h1 className="font-luxury font-bold text-5xl sm:text-7xl md:text-8xl gradient-text glow-text tracking-wide leading-none mb-1">
           BARSANA
         </h1>
-        <h2 className="font-display font-semibold text-2xl sm:text-4xl md:text-5xl text-pink-300 glow-text tracking-[0.18em] mt-1">
+        <h2 className="font-luxury font-semibold text-2xl sm:text-4xl md:text-5xl text-pink-300 glow-text tracking-[0.2em] mt-1">
           MUKHOPADHYAY
         </h2>
 
-        {/* Sweet Bengali sweet tribute */}
-        <p className="text-pink-200/95 text-sm sm:text-base md:text-lg text-center max-w-sm sm:max-w-md leading-relaxed font-light tracking-wide mt-4 px-2">
-          💖 Soft, sweet, and pure joy — just like a <span className="text-amber-300 font-semibold">Rasgulla</span>, you make my whole world sweeter every single day.
-        </p>
+        {/* Well-Formatted, Justified Romantic Tribute */}
+        <div className="glass-card p-5 sm:p-6 mt-6 max-w-lg w-full text-justify text-white/90 shadow-2xl border border-white/20">
+          <p className="text-xs sm:text-sm md:text-base font-normal leading-relaxed text-justify">
+            Soft, sweet, and overflowing with pure warmth — just like a authentic <span className="text-amber-300 font-semibold">Rasgulla</span>, you melt away every sorrow and make my entire existence sweet. You are the poetry in my ordinary days, the calm in every storm, and the love I will treasure for all my lifetimes.
+          </p>
+        </div>
       </div>
 
       {/* Scroll indicator */}
       <div className="absolute bottom-6 flex flex-col items-center gap-1.5 animate-float z-10">
-        <p className="text-white/60 text-xs tracking-[0.25em] uppercase">Scroll down with love</p>
+        <p className="text-blue-200/70 text-xs tracking-[0.25em] uppercase font-medium">Scroll down to explore our universe</p>
         <span className="text-xl">👇💕</span>
       </div>
     </section>

@@ -18,7 +18,7 @@ const Scene = dynamic(() => import('@/components/Scene'), {
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen w-full bg-love-deep text-white selection:bg-pink-500 selection:text-white pb-24">
+    <main className="relative min-h-screen w-full gradient-backdrop text-white selection:bg-pink-500 selection:text-white pb-28">
       {/* Loading Screen */}
       <LoadingScreen />
 
@@ -28,10 +28,10 @@ export default function Home() {
       {/* Floating Liquid Glass Navigation Tabs */}
       <NavigationTabs />
 
-      {/* 3D Background Canvas (Blue to Pink Gradient Transition) */}
+      {/* 3D Background Canvas (Vibrant Blue to Pink Gradient Transition) */}
       <Scene />
 
-      {/* Foreground Interactive Sections */}
+      {/* Foreground Interactive Sections in Natural Flow */}
       <div className="relative z-10 w-full flex flex-col">
         <HeroSection />
         <GallerySection />
