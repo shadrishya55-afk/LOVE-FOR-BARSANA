@@ -26,9 +26,8 @@ const playlist: Track[] = [
     title: 'her (Annika Wells Part)',
     artist: 'JVKE ft. Annika Wells • Hollywood',
     type: 'Hollywood',
-    youtubeId: 'dqHPUY9nNAs',
+    youtubeId: 'KCi_sf9Y8c4',
     spotifyUri: 'https://open.spotify.com/search/JVKE%20her%20Annika%20Wells',
-    startSec: 75,
   },
   {
     id: 'kesariya',
