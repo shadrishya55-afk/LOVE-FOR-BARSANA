@@ -8,7 +8,7 @@ import * as THREE from 'three';
 import BalloonHeart from './three/BalloonHeart';
 import FloatingHearts from './three/FloatingHearts';
 import RosePetals from './three/RosePetals';
-import CuteCat from './three/CuteCat';
+import FloatingMemeCats from './three/FloatingMemeCats';
 
 // High-visibility, rich vibrant Blue-to-Pink gradient colors across sections
 const bgColors = [
@@ -116,64 +116,56 @@ function World({ scrollY }: { scrollY: number }) {
       {/* ── Global Subtle Floating Hearts in Background ── */}
       <FloatingHearts count={45} area={[16, 42, 6]} colors={heartColors} speed={0.65} />
 
-      {/* ── Scene 0 (Hero): 3D Balloons, Glow & Floating Welcome Cat ── */}
+      {/* ── 3D Meme Cats Floating Across All Sections (Banana, Pop, Heart Eyes, Polite, Thumbs Up) ── */}
+      <FloatingMemeCats />
+
+      {/* ── Scene 0 (Hero): 3D Balloons & Glow ── */}
       <group position={[0, 0, 0]}>
-        <CuteCat position={[2.5, 0.8, -0.4]} color="#FFA07A" scale={0.9} variant="waving" />
-        <BalloonHeart position={[-2.5, 1.2, -0.6]} color="#60A5FA" scale={0.85} speed={1.1} />
-        <BalloonHeart position={[2.6, 1.4, -0.5]} color="#C084FC" scale={0.9} speed={0.9} />
-        <BalloonHeart position={[-2.1, -1.0, -1.2]} color="#F472B6" scale={0.7} speed={1.3} />
-        <BalloonHeart position={[2.2, -0.9, -1.0]} color="#FBBF24" scale={0.75} speed={1.0} />
+        <BalloonHeart position={[-2.4, 1.3, -0.6]} color="#60A5FA" scale={0.85} speed={1.1} />
+        <BalloonHeart position={[2.4, 1.5, -0.5]} color="#C084FC" scale={0.9} speed={0.9} />
+        <BalloonHeart position={[-2.0, -1.0, -1.2]} color="#F472B6" scale={0.7} speed={1.3} />
+        <BalloonHeart position={[2.0, -0.9, -1.0]} color="#FBBF24" scale={0.75} speed={1.0} />
         <Sparkles count={70} scale={[14, 10, 5]} size={3.5} speed={0.4} color="#60A5FA" />
         <Sparkles count={45} scale={[10, 8, 4]} size={2.5} speed={0.6} color="#FBBF24" />
       </group>
 
-      {/* ── Scene 1 (Gallery): 3D Playful Cat & Starry Dust ── */}
+      {/* ── Scene 1 (Gallery): Starry Dust ── */}
       <group position={[0, -5, 0]}>
-        <CuteCat position={[-2.6, 0.4, 0.1]} color="#FFE082" scale={0.95} variant="sitting" />
         <FloatingHearts count={25} area={[14, 8, 5]} colors={['#60A5FA', '#C084FC', '#F472B6']} speed={0.8} />
         <Sparkles count={55} scale={[12, 9, 5]} size={3} speed={0.5} color="#A78BFA" />
         <pointLight position={[0, 2, 2]} intensity={1.2} color="#A78BFA" distance={12} />
       </group>
 
-      {/* ── Scene 2 (Our Story): Romantic Heart, Petals & Loving Cats ── */}
+      {/* ── Scene 2 (Our Story): Romantic Heart & Petals ── */}
       <group position={[0, -10, 0]}>
-        <CuteCat position={[2.5, -0.5, 0.3]} color="#F48FB1" scale={1.0} variant="waving" />
         <BigHeart position={[0, 0.6, 0]} />
         <RosePetals count={40} area={[14, 10, 5]} />
         <Sparkles count={60} scale={[12, 8, 4]} size={3} speed={0.6} color="#F472B6" />
         <pointLight position={[2, 2, 2]} intensity={1.2} color="#F472B6" distance={12} />
       </group>
 
-      {/* ── Scene 3 (Cat Memes): 3D Cat Trio ── */}
+      {/* ── Scene 3 (50 Shades of Cats): Sparkles & Lighting ── */}
       <group position={[0, -16, 0]}>
-        <CuteCat position={[-2.4, -0.5, 0.2]} color="#FFA07A" scale={1.15} variant="sitting" />
-        <CuteCat position={[0, 0.3, 0.6]} color="#F48FB1" scale={1.4} variant="waving" />
-        <CuteCat position={[2.4, -0.7, -0.2]} color="#FFE082" scale={1.1} variant="sleeping" />
         <Sparkles count={60} scale={[12, 9, 5]} size={3} speed={0.9} color="#FBBF24" />
         <Sparkles count={40} scale={[8, 6, 3]} size={2.5} speed={1.2} color="#F472B6" />
         <pointLight position={[0, 3, 3]} intensity={1.4} color="#FFDAB9" distance={14} />
       </group>
 
-      {/* ── Scene 4 (Mini Game): Cheerleader 3D Cat ── */}
+      {/* ── Scene 4 (Mini Game): Cheerleader Floating Hearts ── */}
       <group position={[0, -22, 0]}>
-        <CuteCat position={[-2.7, 0.5, 0.2]} color="#FFE082" scale={1.1} variant="waving" />
-        <CuteCat position={[2.7, -0.4, 0.1]} color="#FFA07A" scale={1.05} variant="sitting" />
         <FloatingHearts count={35} area={[14, 10, 5]} colors={heartColors} speed={1.1} />
         <Sparkles count={60} scale={[12, 10, 5]} size={3.5} speed={0.7} color="#FBBF24" />
       </group>
 
-      {/* ── Scene 5 (Reasons): Sunset Rose Hearts & Sleeping Sweet Cat ── */}
+      {/* ── Scene 5 (Reasons): Sunset Rose Hearts ── */}
       <group position={[0, -28, 0]}>
-        <CuteCat position={[-2.5, -0.6, 0.1]} color="#F48FB1" scale={1.1} variant="sleeping" />
         <FloatingHearts count={50} area={[14, 10, 5]} colors={heartColors} speed={0.95} />
         <Sparkles count={60} scale={[12, 10, 5]} size={3} speed={0.5} color="#EC4899" />
         <pointLight position={[3, 3, 3]} intensity={1.2} color="#EC4899" distance={12} />
       </group>
 
-      {/* ── Scene 6 (Finale): Celebration Fireworks & Happy Dancing Cat ── */}
+      {/* ── Scene 6 (Finale): Celebration Fireworks ── */}
       <group position={[0, -34, 0]}>
-        <CuteCat position={[2.2, -0.8, 0.2]} color="#FFA07A" scale={1.3} variant="waving" />
-        <CuteCat position={[-2.2, -0.8, -0.1]} color="#FFE082" scale={1.15} variant="sitting" />
         <FloatingHearts count={75} area={[14, 12, 6]} colors={heartColors} speed={1.3} />
         <Sparkles count={95} scale={[14, 12, 6]} size={4.5} speed={0.7} color="#FBBF24" />
         <Sparkles count={75} scale={[10, 10, 4]} size={3.5} speed={1.0} color="#F43F5E" />
@@ -211,8 +203,8 @@ export default function Scene() {
           <fog attach="fog" args={['#05133d', 8, 36]} />
 
           {/* Lights */}
-          <ambientLight intensity={0.55} />
-          <directionalLight position={[5, 6, 5]} intensity={0.65} color="#E0F2FE" />
+          <ambientLight intensity={0.6} />
+          <directionalLight position={[5, 6, 5]} intensity={0.7} color="#E0F2FE" />
           <pointLight position={[10, 10, 10]} intensity={1.0} color="#60A5FA" distance={32} />
           <pointLight position={[-10, -5, -5]} intensity={0.8} color="#F472B6" distance={28} />
 
