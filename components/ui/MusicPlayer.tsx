@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useRef } from 'react';
 
 interface Track {
   id: string;
@@ -8,7 +8,7 @@ interface Track {
   artist: string;
   type: 'Bollywood' | 'Hollywood' | '432Hz';
   youtubeId: string;
-  spotifyId?: string;
+  spotifyUri: string;
 }
 
 const playlist: Track[] = [
@@ -18,7 +18,7 @@ const playlist: Track[] = [
     artist: 'Inspired Feminine • Affirmation Song',
     type: '432Hz',
     youtubeId: 'qf46jT1h18c',
-    spotifyId: 'track/3yTqV9YQ2aK82qM1t22L8Z',
+    spotifyUri: 'https://open.spotify.com/search/J%27adore%20La%20Vie%20Inspired%20Feminine',
   },
   {
     id: 'kesariya',
@@ -26,7 +26,7 @@ const playlist: Track[] = [
     artist: 'Arijit Singh, Pritam • Brahmastra',
     type: 'Bollywood',
     youtubeId: 'BddP6PYo2gs',
-    spotifyId: 'track/6nWjTff1Wb6v74u3hVv61h',
+    spotifyUri: 'https://open.spotify.com/track/6nWjTff1Wb6v74u3hVv61h',
   },
   {
     id: 'perfect',
@@ -34,7 +34,7 @@ const playlist: Track[] = [
     artist: 'Ed Sheeran • Divide',
     type: 'Hollywood',
     youtubeId: '2Vv-BfVoq4g',
-    spotifyId: 'track/0tgVpDi06FyKpA1z0VMD4v',
+    spotifyUri: 'https://open.spotify.com/track/0tgVpDi06FyKpA1z0VMD4v',
   },
   {
     id: 'tumhiho',
@@ -42,7 +42,7 @@ const playlist: Track[] = [
     artist: 'Arijit Singh • Aashiqui 2',
     type: 'Bollywood',
     youtubeId: 'IJq0yyWOh1E',
-    spotifyId: 'track/56zZ48jNqE0Vf0uP8J1g4f',
+    spotifyUri: 'https://open.spotify.com/track/56zZ48jNqE0Vf0uP8J1g4f',
   },
   {
     id: 'untilifoundyou',
@@ -50,7 +50,7 @@ const playlist: Track[] = [
     artist: 'Stephen Sanchez • Easy On My Eyes',
     type: 'Hollywood',
     youtubeId: 'GxldQ9eX2wo',
-    spotifyId: 'track/0T5iIrXA4p5G0Uag44VoPP',
+    spotifyUri: 'https://open.spotify.com/track/0T5iIrXA4p5G0Uag44VoPP',
   },
   {
     id: 'raataan',
@@ -58,7 +58,7 @@ const playlist: Track[] = [
     artist: 'Jubin Nautiyal, Asees Kaur • Shershaah',
     type: 'Bollywood',
     youtubeId: 'gvyUuxdRdR4',
-    spotifyId: 'track/2rOnSn27qVHgA2wElJRQQv',
+    spotifyUri: 'https://open.spotify.com/track/2rOnSn27qVHgA2wElJRQQv',
   },
   {
     id: 'goldenhour',
@@ -66,7 +66,7 @@ const playlist: Track[] = [
     artist: 'JVKE • this is what ____ feels like',
     type: 'Hollywood',
     youtubeId: 'PEM0Vs8jf1w',
-    spotifyId: 'track/4yNk0iz9hhAw5NEN5b9jh5',
+    spotifyUri: 'https://open.spotify.com/track/4yNk0iz9hhAw5NEN5b9jh5',
   },
   {
     id: 'shayad',
@@ -74,7 +74,7 @@ const playlist: Track[] = [
     artist: 'Arijit Singh, Pritam • Love Aaj Kal',
     type: 'Bollywood',
     youtubeId: 'bhh_ZqQvh_E',
-    spotifyId: 'track/1tNQ4k7W0f1K7i9K3J1u8L',
+    spotifyUri: 'https://open.spotify.com/track/1tNQ4k7W0f1K7i9K3J1u8L',
   },
   {
     id: 'dandelions',
@@ -82,7 +82,7 @@ const playlist: Track[] = [
     artist: 'Ruth B. • Safe Haven',
     type: 'Hollywood',
     youtubeId: 'W8a4sUabCUo',
-    spotifyId: 'track/2GsHj6r3nJ62xH25fE23kM',
+    spotifyUri: 'https://open.spotify.com/track/2GsHj6r3nJ62xH25fE23kM',
   },
 ];
 
@@ -127,26 +127,39 @@ export default function MusicPlayer() {
     setIsPlaying(true);
   };
 
-  // Construct official YouTube stream embed URL with autoplay parameter
+  // Construct background audio stream embed URL
   const embedSrc = isPlayerLoaded && isPlaying
-    ? `https://www.youtube-nocookie.com/embed/${currentTrack.youtubeId}?autoplay=1&enablejsapi=1&playsinline=1&controls=1&origin=${typeof window !== 'undefined' ? window.location.origin : ''}`
-    : `https://www.youtube-nocookie.com/embed/${currentTrack.youtubeId}?autoplay=0&enablejsapi=1&playsinline=1&controls=1`;
+    ? `https://www.youtube-nocookie.com/embed/${currentTrack.youtubeId}?autoplay=1&enablejsapi=1&playsinline=1&controls=0&origin=${typeof window !== 'undefined' ? window.location.origin : ''}`
+    : `https://www.youtube-nocookie.com/embed/${currentTrack.youtubeId}?autoplay=0&enablejsapi=1&playsinline=1&controls=0`;
 
   return (
     <div className="fixed top-4 left-1/2 -translate-x-1/2 z-50 max-w-[96vw] sm:max-w-md w-auto">
-      {/* Liquid Glass Pill Player */}
-      <div className="liquid-glass-pill px-3.5 py-2 sm:px-4 sm:py-2.5 flex items-center gap-2.5 shadow-2xl relative border border-pink-300/40">
+      {/* ── Completely Hidden Streaming Audio Engine (Zero visual clutter) ── */}
+      {isPlayerLoaded && (
+        <div className="sr-only pointer-events-none opacity-0 absolute -top-[9999px] -left-[9999px] w-1 h-1 overflow-hidden" aria-hidden="true">
+          <iframe
+            ref={iframeRef}
+            src={embedSrc}
+            title={currentTrack.title}
+            className="w-1 h-1"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          />
+        </div>
+      )}
+
+      {/* ── Pure Aesthetic Liquid Glass Pill Player ── */}
+      <div className="liquid-glass-pill px-3.5 py-2 sm:px-4 sm:py-2.5 flex items-center gap-2.5 shadow-2xl relative border border-pink-300/40 backdrop-blur-2xl">
         {/* Previous Button */}
         <button
           onClick={prevTrack}
-          className="text-white/60 hover:text-white p-1 transition-colors text-xs active:scale-90"
+          className="text-white/60 hover:text-white p-1 transition-colors text-xs active:scale-90 cursor-pointer"
           title="Previous Track"
           aria-label="Previous Track"
         >
           ⏮
         </button>
 
-        {/* Play/Pause Button with Pulse Glow */}
+        {/* Play/Pause Button with Glowing Aura */}
         <button
           onClick={togglePlay}
           className="relative flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-r from-pink-500 to-rose-500 border border-pink-300/60 shadow-lg active:scale-95 transition-transform flex-shrink-0 cursor-pointer"
@@ -166,7 +179,7 @@ export default function MusicPlayer() {
         {/* Next Button */}
         <button
           onClick={nextTrack}
-          className="text-white/60 hover:text-white p-1 transition-colors text-xs active:scale-90"
+          className="text-white/60 hover:text-white p-1 transition-colors text-xs active:scale-90 cursor-pointer"
           title="Next Track"
           aria-label="Next Track"
         >
@@ -195,7 +208,7 @@ export default function MusicPlayer() {
             </span>
           </div>
           <span className="text-[10px] text-pink-200/90 font-light truncate">
-            {isPlaying ? currentTrack.artist : 'Tap to Play Exact Song 🎵'}
+            {isPlaying ? currentTrack.artist : 'Tap to Play Music 🎵'}
           </span>
         </div>
 
@@ -222,26 +235,7 @@ export default function MusicPlayer() {
         </button>
       </div>
 
-      {/* Embedded Real Audio/Video Stream Player (Seamless hidden / mini mode) */}
-      {isPlayerLoaded && (
-        <div
-          className={`overflow-hidden transition-all duration-300 mt-2 rounded-2xl glass-card border border-pink-400/40 shadow-2xl ${
-            showPlaylist ? 'hidden' : 'block'
-          }`}
-          style={{ width: '100%', height: isPlaying ? '80px' : '0px' }}
-        >
-          <iframe
-            ref={iframeRef}
-            src={embedSrc}
-            title={currentTrack.title}
-            className="w-full h-full border-0 rounded-2xl"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowFullScreen
-          />
-        </div>
-      )}
-
-      {/* Romantic Playlist Dropdown Modal */}
+      {/* ── Romantic Playlist Dropdown Modal ── */}
       {showPlaylist && (
         <div className="absolute top-14 left-0 right-0 glass-card p-3.5 shadow-2xl border border-pink-300/50 animate-fade-in-up z-50">
           <div className="flex items-center justify-between pb-2 mb-2 border-b border-white/15">
@@ -276,25 +270,40 @@ export default function MusicPlayer() {
                     </span>
                     <span className="text-[10px] text-white/70 truncate">{t.artist}</span>
                   </div>
-                  <span
-                    className={`text-[9px] font-bold px-2 py-0.5 rounded-full border flex-shrink-0 ${
-                      t.type === 'Bollywood'
-                        ? 'text-amber-300 bg-amber-400/20 border-amber-300/40'
-                        : t.type === 'Hollywood'
-                        ? 'text-blue-300 bg-blue-400/20 border-blue-300/40'
-                        : 'text-pink-300 bg-pink-400/20 border-pink-300/40'
-                    }`}
-                  >
-                    {t.type}
-                  </span>
+
+                  <div className="flex items-center gap-1.5 flex-shrink-0">
+                    <span
+                      className={`text-[9px] font-bold px-2 py-0.5 rounded-full border ${
+                        t.type === 'Bollywood'
+                          ? 'text-amber-300 bg-amber-400/20 border-amber-300/40'
+                          : t.type === 'Hollywood'
+                          ? 'text-blue-300 bg-blue-400/20 border-blue-300/40'
+                          : 'text-pink-300 bg-pink-400/20 border-pink-300/40'
+                      }`}
+                    >
+                      {t.type}
+                    </span>
+                    <a
+                      href={t.spotifyUri}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="text-[11px] p-1 text-green-400 hover:text-green-300 hover:scale-115 transition-transform"
+                      title="Open in Spotify"
+                      aria-label="Open in Spotify"
+                    >
+                      🟢
+                    </a>
+                  </div>
                 </div>
               );
             })}
           </div>
 
-          <div className="mt-2.5 pt-2 border-t border-white/10 text-center">
-            <span className="text-[10px] text-pink-200/80 font-medium">
-              ✨ Tap any song to instantly play the official audio ✨
+          <div className="mt-2.5 pt-2 border-t border-white/10 flex items-center justify-between text-[10px] text-pink-200/80 px-1">
+            <span>✨ Tap any song to play audio</span>
+            <span className="text-green-400 flex items-center gap-1">
+              <span>🟢</span> Open in Spotify
             </span>
           </div>
         </div>
