@@ -15,11 +15,11 @@ interface Track {
 const playlist: Track[] = [
   {
     id: 'jadore',
-    title: "J'adore La Vie",
-    artist: '432 Hz Affirmation • Affirmative',
+    title: "J'adore La Vie (432 Hz)",
+    artist: 'Inspired Feminine • Affirmation Song',
     type: '432Hz',
-    youtubeId: 'BkSAZCRdmO8',
-    spotifyUri: 'https://open.spotify.com/search/J%27adore%20La%20Vie',
+    youtubeId: 'qf46jT1h18c',
+    spotifyUri: 'https://open.spotify.com/search/J%27adore%20La%20Vie%20Inspired%20Feminine',
   },
   {
     id: 'her',
@@ -34,7 +34,7 @@ const playlist: Track[] = [
     title: 'Kesariya',
     artist: 'Arijit Singh, Pritam • Brahmastra',
     type: 'Bollywood',
-    youtubeId: 'BddP6PYo2gs',
+    youtubeId: 'BqsIfbq15J0',
     spotifyUri: 'https://open.spotify.com/track/6nWjTff1Wb6v74u3hVv61h',
   },
   {
