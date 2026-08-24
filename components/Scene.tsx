@@ -2,7 +2,7 @@
 
 import { Canvas, useFrame } from '@react-three/fiber';
 import { ScrollControls, Scroll, Stars, Preload, useScroll } from '@react-three/drei';
-import { Suspense, useRef } from 'react';
+import { Suspense, useRef, useEffect } from 'react';
 import * as THREE from 'three';
 
 import { HeroSection3D, HeroOverlay } from './sections/HeroSection';
@@ -42,6 +42,48 @@ function DynamicBackground() {
   return null;
 }
 
+// Touch swipe fallback listener to guarantee 100% responsive scrolling on mobile devices
+function MobileTouchScroll() {
+  const scroll = useScroll();
+
+  useEffect(() => {
+    let startY = 0;
+    let isTouching = false;
+
+    const onTouchStart = (e: TouchEvent) => {
+      if (e.touches.length === 1) {
+        startY = e.touches[0].clientY;
+        isTouching = true;
+      }
+    };
+
+    const onTouchMove = (e: TouchEvent) => {
+      if (!isTouching || e.touches.length !== 1 || !scroll.el) return;
+      const currentY = e.touches[0].clientY;
+      const deltaY = (startY - currentY) * 1.2;
+      startY = currentY;
+
+      scroll.el.scrollTop += deltaY;
+    };
+
+    const onTouchEnd = () => {
+      isTouching = false;
+    };
+
+    window.addEventListener('touchstart', onTouchStart, { passive: true });
+    window.addEventListener('touchmove', onTouchMove, { passive: true });
+    window.addEventListener('touchend', onTouchEnd, { passive: true });
+
+    return () => {
+      window.removeEventListener('touchstart', onTouchStart);
+      window.removeEventListener('touchmove', onTouchMove);
+      window.removeEventListener('touchend', onTouchEnd);
+    };
+  }, [scroll]);
+
+  return null;
+}
+
 function Experience() {
   return (
     <>
@@ -68,7 +110,9 @@ function Experience() {
       />
 
       {/* ── Scroll-driven experience ── */}
-      <ScrollControls pages={TOTAL_PAGES} damping={0.22}>
+      <ScrollControls pages={TOTAL_PAGES} damping={0.12} distance={1}>
+        <MobileTouchScroll />
+
         {/* 3D layer */}
         <Scroll>
           <HeroSection3D />
@@ -108,7 +152,8 @@ export default function Scene() {
         top: 0,
         left: 0,
         width: '100vw',
-        height: '100vh',
+        height: '100dvh',
+        touchAction: 'pan-y',
       }}
     >
       <Suspense fallback={null}>
