@@ -109,3 +109,4 @@ export default function PoliteCat3D({
     </Float>
   );
 }
+

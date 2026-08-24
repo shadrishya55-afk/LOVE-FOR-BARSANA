@@ -9,6 +9,7 @@ interface Track {
   type: 'Bollywood' | 'Hollywood' | '432Hz';
   youtubeId: string;
   spotifyUri: string;
+  startSec?: number;
 }
 
 const playlist: Track[] = [
@@ -19,6 +20,15 @@ const playlist: Track[] = [
     type: '432Hz',
     youtubeId: 'BkSAZCRdmO8',
     spotifyUri: 'https://open.spotify.com/search/J%27adore%20La%20Vie',
+  },
+  {
+    id: 'her',
+    title: 'her (Annika Wells Part)',
+    artist: 'JVKE ft. Annika Wells • Hollywood',
+    type: 'Hollywood',
+    youtubeId: 'dqHPUY9nNAs',
+    spotifyUri: 'https://open.spotify.com/search/JVKE%20her%20Annika%20Wells',
+    startSec: 75,
   },
   {
     id: 'kesariya',
@@ -127,10 +137,11 @@ export default function MusicPlayer() {
     setIsPlaying(true);
   };
 
-  // Background Audio Stream IFrame URL
+  // Background Audio Stream IFrame URL with start offset support
+  const startParam = currentTrack.startSec ? `&start=${currentTrack.startSec}` : '';
   const embedSrc = isPlayerLoaded && isPlaying
-    ? `https://www.youtube-nocookie.com/embed/${currentTrack.youtubeId}?autoplay=1&enablejsapi=1&playsinline=1&controls=0&origin=${typeof window !== 'undefined' ? window.location.origin : ''}`
-    : `https://www.youtube-nocookie.com/embed/${currentTrack.youtubeId}?autoplay=0&enablejsapi=1&playsinline=1&controls=0`;
+    ? `https://www.youtube-nocookie.com/embed/${currentTrack.youtubeId}?autoplay=1&enablejsapi=1&playsinline=1&controls=0${startParam}&origin=${typeof window !== 'undefined' ? window.location.origin : ''}`
+    : `https://www.youtube-nocookie.com/embed/${currentTrack.youtubeId}?autoplay=0&enablejsapi=1&playsinline=1&controls=0${startParam}`;
 
   return (
     <div className="fixed top-4 left-1/2 -translate-x-1/2 z-50 max-w-[96vw] sm:max-w-md w-auto">
