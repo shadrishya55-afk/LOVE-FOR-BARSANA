@@ -19,17 +19,18 @@
   box-sizing: border-box;
 }
 
-html, body, #__next, main {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
+html {
+  scroll-behavior: smooth;
+}
+
+html, body {
+  min-height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
   background: var(--love-deep);
   font-family: 'Quicksand', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  touch-action: pan-y !important;
-  -webkit-overflow-scrolling: touch !important;
-  overscroll-behavior: none;
 }
 
 /* Ensure Canvas and WebGL elements allow native vertical swipe scrolling */
