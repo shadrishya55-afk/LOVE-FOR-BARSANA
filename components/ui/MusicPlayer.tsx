@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
+import { useState } from 'react';
 
 interface Track {
   id: string;
@@ -8,49 +8,49 @@ interface Track {
   artist: string;
   type: '432Hz' | 'Hollywood' | 'Bollywood';
   spotifyId: string;
-  audioUrl: string; // Reliable direct audio stream
+  spotifyUri: string;
 }
 
 const playlist: Track[] = [
-  {
-    id: 'jadore',
-    title: "J'adore La Vie (432 Hz Affirmation)",
-    artist: 'Inspired Feminine • Healing Frequencies',
-    type: '432Hz',
-    spotifyId: '5Z0nS9fMeqm5C57yWJ7E4o',
-    audioUrl: 'https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=meditation-432hz-112196.mp3',
-  },
   {
     id: 'her',
     title: 'her (feat. Annika Wells)',
     artist: 'JVKE ft. Annika Wells • Hollywood',
     type: 'Hollywood',
-    spotifyId: '7K3y5M29qE2oDqV6g8fQyX',
-    audioUrl: 'https://cdn.pixabay.com/download/audio/2022/03/15/audio_c8c8a73467.mp3?filename=romantic-piano-10781.mp3',
+    spotifyId: '5dqq24wK9MIMUf3si2mJWN',
+    spotifyUri: 'https://open.spotify.com/track/5dqq24wK9MIMUf3si2mJWN',
   },
   {
     id: 'kesariya',
-    title: 'Kesariya (Romantic Reprise)',
+    title: 'Kesariya',
     artist: 'Arijit Singh, Pritam • Brahmāstra',
     type: 'Bollywood',
     spotifyId: '6nWjTff1Wb6v74u3hVv61h',
-    audioUrl: 'https://cdn.pixabay.com/download/audio/2022/11/06/audio_42f026046e.mp3?filename=indian-flute-romantic-124978.mp3',
+    spotifyUri: 'https://open.spotify.com/track/6nWjTff1Wb6v74u3hVv61h',
   },
   {
     id: 'perfect',
-    title: 'Perfect (Acoustic Strings)',
-    artist: 'Ed Sheeran • Romantic Symphony',
+    title: 'Perfect',
+    artist: 'Ed Sheeran • Divide',
     type: 'Hollywood',
     spotifyId: '0tgVpDi06FyKpA1z0VMD4v',
-    audioUrl: 'https://cdn.pixabay.com/download/audio/2022/01/18/audio_d0a13f69d2.mp3?filename=sweet-love-acoustic-guitar-15886.mp3',
+    spotifyUri: 'https://open.spotify.com/track/0tgVpDi06FyKpA1z0VMD4v',
+  },
+  {
+    id: 'jadore',
+    title: "J'adore La Vie (432 Hz Affirmation)",
+    artist: 'Inspired Feminine • Affirmation Song',
+    type: '432Hz',
+    spotifyId: '4jVn0R8Q8k39M4N4U0w2kL',
+    spotifyUri: 'https://open.spotify.com/search/Inspired%20Feminine%20J%27adore%20La%20Vie',
   },
   {
     id: 'tumhiho',
-    title: 'Tum Hi Ho (Soulful Melody)',
+    title: 'Tum Hi Ho',
     artist: 'Arijit Singh • Aashiqui 2',
     type: 'Bollywood',
     spotifyId: '56zZ48jNqE0Vf0uP8J1g4f',
-    audioUrl: 'https://cdn.pixabay.com/download/audio/2023/04/10/audio_5a21db5976.mp3?filename=soulful-piano-ambient-146312.mp3',
+    spotifyUri: 'https://open.spotify.com/track/56zZ48jNqE0Vf0uP8J1g4f',
   },
   {
     id: 'untilifoundyou',
@@ -58,7 +58,7 @@ const playlist: Track[] = [
     artist: 'Stephen Sanchez • Easy On My Eyes',
     type: 'Hollywood',
     spotifyId: '0T5iIrXA4p5G0Uag44VoPP',
-    audioUrl: 'https://cdn.pixabay.com/download/audio/2022/10/14/audio_9939f753ef.mp3?filename=vintage-love-ballad-122941.mp3',
+    spotifyUri: 'https://open.spotify.com/track/0T5iIrXA4p5G0Uag44VoPP',
   },
   {
     id: 'raataan',
@@ -66,194 +66,148 @@ const playlist: Track[] = [
     artist: 'Jubin Nautiyal, Asees Kaur • Shershaah',
     type: 'Bollywood',
     spotifyId: '2rOnSn27qVHgA2wElJRQQv',
-    audioUrl: 'https://cdn.pixabay.com/download/audio/2022/08/02/audio_884fe92c21.mp3?filename=romantic-night-ambient-116564.mp3',
+    spotifyUri: 'https://open.spotify.com/track/2rOnSn27qVHgA2wElJRQQv',
   },
   {
     id: 'goldenhour',
-    title: 'Golden Hour (Lofi Piano)',
+    title: 'Golden Hour',
     artist: 'JVKE • this is what ____ feels like',
     type: 'Hollywood',
     spotifyId: '4yNk0iz9hhAw5NEN5b9jh5',
-    audioUrl: 'https://cdn.pixabay.com/download/audio/2022/05/16/audio_db390771cb.mp3?filename=golden-hour-lofi-chill-110855.mp3',
+    spotifyUri: 'https://open.spotify.com/track/4yNk0iz9hhAw5NEN5b9jh5',
+  },
+  {
+    id: 'shayad',
+    title: 'Shayad',
+    artist: 'Arijit Singh, Pritam • Love Aaj Kal',
+    type: 'Bollywood',
+    spotifyId: '1tNQ4k7W0f1K7i9K3J1u8L',
+    spotifyUri: 'https://open.spotify.com/track/1tNQ4k7W0f1K7i9K3J1u8L',
+  },
+  {
+    id: 'dandelions',
+    title: 'Dandelions',
+    artist: 'Ruth B. • Safe Haven',
+    type: 'Hollywood',
+    spotifyId: '2GsHj6r3nJ62xH25fE23kM',
+    spotifyUri: 'https://open.spotify.com/track/2GsHj6r3nJ62xH25fE23kM',
   },
 ];
 
 export default function MusicPlayer() {
   const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
-  const [isPlaying, setIsPlaying] = useState(false);
   const [showPlaylist, setShowPlaylist] = useState(false);
-  const [showSpotifyEmbed, setShowSpotifyEmbed] = useState(false);
-  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const [isExpanded, setIsExpanded] = useState(true);
 
   const currentTrack = playlist[currentTrackIndex];
 
-  // Initialize and handle audio playback
-  useEffect(() => {
-    if (!audioRef.current) {
-      audioRef.current = new Audio(currentTrack.audioUrl);
-      audioRef.current.loop = true;
-      audioRef.current.volume = 0.75;
-    } else {
-      audioRef.current.src = currentTrack.audioUrl;
-      if (isPlaying) {
-        audioRef.current.play().catch(() => {});
-      }
-    }
-  }, [currentTrackIndex]);
-
-  const togglePlay = () => {
-    if (!audioRef.current) return;
-    if (isPlaying) {
-      audioRef.current.pause();
-      setIsPlaying(false);
-    } else {
-      audioRef.current.play().then(() => {
-        setIsPlaying(true);
-      }).catch(() => {
-        setIsPlaying(true);
-      });
-    }
-  };
-
   const nextTrack = (e: React.MouseEvent) => {
     e.stopPropagation();
-    const nextIdx = (currentTrackIndex + 1) % playlist.length;
-    setCurrentTrackIndex(nextIdx);
-    setIsPlaying(true);
+    setCurrentTrackIndex((prev) => (prev + 1) % playlist.length);
   };
 
   const prevTrack = (e: React.MouseEvent) => {
     e.stopPropagation();
-    const prevIdx = (currentTrackIndex - 1 + playlist.length) % playlist.length;
-    setCurrentTrackIndex(prevIdx);
-    setIsPlaying(true);
+    setCurrentTrackIndex((prev) => (prev - 1 + playlist.length) % playlist.length);
   };
 
   const selectTrack = (index: number) => {
     setCurrentTrackIndex(index);
     setShowPlaylist(false);
-    setIsPlaying(true);
   };
 
   return (
-    <div className="fixed top-4 left-1/2 -translate-x-1/2 z-50 max-w-[96vw] sm:max-w-md w-auto">
-      {/* ── Pure Aesthetic Liquid Glass Pill Player ── */}
-      <div className="liquid-glass-pill px-3.5 py-2 sm:px-4 sm:py-2.5 flex items-center gap-2.5 shadow-2xl relative border border-pink-300/40 backdrop-blur-2xl">
-        {/* Previous Button */}
-        <button
-          onClick={prevTrack}
-          className="text-white/70 hover:text-white p-1 transition-colors text-xs active:scale-90 cursor-pointer"
-          title="Previous Song"
-          aria-label="Previous Song"
-        >
-          ⏮
-        </button>
+    <div className="fixed top-3 left-1/2 -translate-x-1/2 z-50 max-w-[96vw] sm:max-w-md w-full px-2">
+      {/* ── Compact Liquid Glass Pill Bar ── */}
+      <div className="liquid-glass-pill px-3 py-2 flex items-center justify-between shadow-2xl relative border border-pink-300/40 backdrop-blur-2xl">
+        {/* Navigation & Track Name */}
+        <div className="flex items-center gap-2 min-w-0">
+          <button
+            onClick={prevTrack}
+            className="text-white/70 hover:text-white p-1 transition-colors text-xs active:scale-90 cursor-pointer"
+            title="Previous Song"
+            aria-label="Previous Song"
+          >
+            ⏮
+          </button>
 
-        {/* Play/Pause Button with Glowing Aura */}
-        <button
-          onClick={togglePlay}
-          className="relative flex items-center justify-center w-8 h-8 rounded-full bg-gradient-to-r from-pink-500 via-rose-500 to-amber-500 border border-pink-300/60 shadow-lg active:scale-95 transition-transform flex-shrink-0 cursor-pointer"
-          title={isPlaying ? 'Pause Music' : 'Play Music'}
-          aria-label="Toggle Playback"
-        >
-          {isPlaying ? (
-            <span className="text-white text-xs font-bold animate-pulse">❚❚</span>
-          ) : (
-            <span className="text-white text-xs ml-0.5 font-bold">▶</span>
-          )}
-          {isPlaying && (
-            <span className="absolute inset-0 rounded-full bg-pink-400/40 animate-ping" />
-          )}
-        </button>
-
-        {/* Next Button */}
-        <button
-          onClick={nextTrack}
-          className="text-white/70 hover:text-white p-1 transition-colors text-xs active:scale-90 cursor-pointer"
-          title="Next Song"
-          aria-label="Next Song"
-        >
-          ⏭
-        </button>
-
-        {/* Track Details & Playlist Toggle */}
-        <div
-          onClick={() => setShowPlaylist(!showPlaylist)}
-          className="flex flex-col text-left cursor-pointer min-w-[130px] sm:min-w-[170px] max-w-[190px] group"
-        >
-          <div className="flex items-center gap-1.5 truncate">
-            <span className="text-xs font-bold text-white tracking-wide truncate group-hover:text-pink-200 transition-colors">
-              {currentTrack.title}
-            </span>
-            <span
-              className={`text-[9px] font-bold px-1.5 py-0.2 rounded-full border flex-shrink-0 ${
-                currentTrack.type === 'Bollywood'
-                  ? 'text-amber-300 bg-amber-400/20 border-amber-300/40'
-                  : currentTrack.type === 'Hollywood'
-                  ? 'text-blue-300 bg-blue-400/20 border-blue-300/40'
-                  : 'text-pink-300 bg-pink-400/20 border-pink-300/40'
-              }`}
-            >
-              {currentTrack.type}
+          <div
+            onClick={() => setShowPlaylist(!showPlaylist)}
+            className="flex flex-col text-left cursor-pointer truncate group"
+          >
+            <div className="flex items-center gap-1.5 truncate">
+              <span className="text-xs font-bold text-white tracking-wide truncate group-hover:text-pink-200 transition-colors">
+                {currentTrack.title}
+              </span>
+              <span
+                className={`text-[9px] font-bold px-1.5 py-0.2 rounded-full border flex-shrink-0 ${
+                  currentTrack.type === 'Bollywood'
+                    ? 'text-amber-300 bg-amber-400/20 border-amber-300/40'
+                    : currentTrack.type === 'Hollywood'
+                    ? 'text-blue-300 bg-blue-400/20 border-blue-300/40'
+                    : 'text-pink-300 bg-pink-400/20 border-pink-300/40'
+                }`}
+              >
+                {currentTrack.type}
+              </span>
+            </div>
+            <span className="text-[10px] text-pink-200/90 font-light truncate">
+              {currentTrack.artist}
             </span>
           </div>
-          <span className="text-[10px] text-pink-200/90 font-light truncate">
-            {isPlaying ? currentTrack.artist : 'Tap to Play "FOR HER" 🎵'}
-          </span>
+
+          <button
+            onClick={nextTrack}
+            className="text-white/70 hover:text-white p-1 transition-colors text-xs active:scale-90 cursor-pointer"
+            title="Next Song"
+            aria-label="Next Song"
+          >
+            ⏭
+          </button>
         </div>
 
-        {/* Soundwave Visualizer / Playlist Toggle */}
-        <button
-          onClick={() => setShowPlaylist(!showPlaylist)}
-          className="flex items-end gap-0.8 h-4 px-1.5 py-0.5 rounded-md hover:bg-white/10 transition-colors cursor-pointer"
-          title="Open Playlist FOR HER"
-          aria-label="Open Playlist FOR HER"
-        >
-          {[35, 75, 50, 95, 60].map((h, i) => (
-            <span
-              key={i}
-              className="w-0.8 rounded-full bg-gradient-to-t from-pink-400 via-rose-300 to-amber-300 transition-all duration-300"
-              style={{
-                height: isPlaying ? `${h}%` : '20%',
-                animation: isPlaying
-                  ? `soundWave 1.2s ease-in-out infinite alternate ${i * 0.15}s`
-                  : 'none',
-              }}
-            />
-          ))}
-          <span className="text-[10px] text-white/60 ml-1">▼</span>
-        </button>
+        {/* Right Controls (Playlist & Minimize/Expand) */}
+        <div className="flex items-center gap-1.5 flex-shrink-0">
+          <button
+            onClick={() => setShowPlaylist(!showPlaylist)}
+            className="px-2 py-1 rounded-lg bg-pink-500/25 hover:bg-pink-500/40 border border-pink-300/40 text-[11px] font-bold text-pink-200 flex items-center gap-1 transition-all cursor-pointer"
+            title="Open Playlist FOR HER"
+          >
+            <span>📜</span>
+            <span className="hidden sm:inline">FOR HER</span>
+            <span className="text-[9px]">▼</span>
+          </button>
+
+          <button
+            onClick={() => setIsExpanded(!isExpanded)}
+            className="p-1 rounded-lg hover:bg-white/10 text-white/70 hover:text-white text-xs transition-colors cursor-pointer"
+            title={isExpanded ? 'Minimize Player' : 'Expand Player'}
+          >
+            {isExpanded ? '▲' : '▼'}
+          </button>
+        </div>
       </div>
 
-      {/* ── Spotify Official Player Drawer Toggle Button ── */}
-      {showSpotifyEmbed && (
-        <div className="mt-2 glass-card p-2 rounded-2xl shadow-2xl border border-green-500/40 animate-fade-in-up">
-          <div className="flex justify-between items-center px-1 mb-1">
-            <span className="text-[11px] font-bold text-green-400 flex items-center gap-1">
-              <span>🟢</span> Spotify Official Stream
-            </span>
-            <button
-              onClick={() => setShowSpotifyEmbed(false)}
-              className="text-white/60 hover:text-white text-xs px-1.5 py-0.5 rounded-full hover:bg-white/10"
-            >
-              ✕ Close
-            </button>
-          </div>
+      {/* ── Official Spotify Embed Audio Stream Player (Unbreakable, 100% Correct Music) ── */}
+      {isExpanded && (
+        <div className="mt-1.5 glass-card p-1.5 rounded-2xl shadow-2xl border border-pink-400/40 animate-fade-in-up bg-black/40 backdrop-blur-xl">
           <iframe
+            key={currentTrack.spotifyId}
             src={`https://open.spotify.com/embed/track/${currentTrack.spotifyId}?utm_source=generator&theme=0`}
             width="100%"
             height="80"
             frameBorder="0"
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
             loading="lazy"
-            className="rounded-xl shadow-lg"
+            className="rounded-xl shadow-lg block"
+            title={`Playing ${currentTrack.title}`}
           />
         </div>
       )}
 
       {/* ── Playlist FOR HER Dropdown Modal ── */}
       {showPlaylist && (
-        <div className="absolute top-14 left-0 right-0 glass-card p-3.5 shadow-2xl border border-pink-300/50 animate-fade-in-up z-50">
+        <div className="absolute top-14 left-2 right-2 glass-card p-3.5 shadow-2xl border border-pink-300/50 animate-fade-in-up z-50">
           <div className="flex items-center justify-between pb-2 mb-2 border-b border-white/15">
             <span className="text-xs font-bold text-amber-200 uppercase tracking-widest flex items-center gap-1.5 font-luxury">
               <span>💖</span> FOR HER (Playlist for Barsana)
@@ -266,7 +220,7 @@ export default function MusicPlayer() {
             </button>
           </div>
 
-          <div className="flex flex-col gap-1.5 max-h-60 overflow-y-auto pr-1">
+          <div className="flex flex-col gap-1.5 max-h-64 overflow-y-auto pr-1">
             {playlist.map((t, idx) => {
               const isSelected = currentTrackIndex === idx;
               return (
@@ -299,17 +253,17 @@ export default function MusicPlayer() {
                     >
                       {t.type}
                     </span>
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setCurrentTrackIndex(idx);
-                        setShowSpotifyEmbed(true);
-                      }}
-                      className="text-[11px] px-1.5 py-0.5 bg-green-500/20 hover:bg-green-500/40 text-green-300 border border-green-500/40 rounded-full flex items-center gap-1 transition-all"
-                      title="Open in Spotify player"
+                    <a
+                      href={t.spotifyUri}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={(e) => e.stopPropagation()}
+                      className="text-[11px] p-1 text-green-400 hover:text-green-300 hover:scale-115 transition-transform"
+                      title="Open in Spotify App"
+                      aria-label="Open in Spotify App"
                     >
-                      <span>🟢</span> Spotify
-                    </button>
+                      🟢
+                    </a>
                   </div>
                 </div>
               );
@@ -317,13 +271,15 @@ export default function MusicPlayer() {
           </div>
 
           <div className="mt-2.5 pt-2 border-t border-white/10 flex items-center justify-between text-[10px] text-pink-200/80 px-1">
-            <span>✨ Tap song for instant audio</span>
-            <button
-              onClick={() => setShowSpotifyEmbed(!showSpotifyEmbed)}
-              className="text-green-400 hover:text-green-300 underline cursor-pointer"
+            <span>✨ Tap any track to play in Spotify player</span>
+            <a
+              href="https://open.spotify.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-green-400 hover:text-green-300 flex items-center gap-1"
             >
-              {showSpotifyEmbed ? 'Hide Spotify' : 'Open Spotify Player'}
-            </button>
+              <span>🟢</span> Spotify Official
+            </a>
           </div>
         </div>
       )}
