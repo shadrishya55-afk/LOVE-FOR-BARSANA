@@ -2,7 +2,7 @@
 
 import { useRef } from 'react';
 import { useFrame, useThree } from '@react-three/fiber';
-import { Text, Sparkles, useScroll } from '@react-three/drei';
+import { Sparkles, useScroll } from '@react-three/drei';
 import * as THREE from 'three';
 import FloatingHearts from '../three/FloatingHearts';
 import CuteCat from '../three/CuteCat';
@@ -29,30 +29,15 @@ export function FinaleSection3D() {
 
   return (
     <group ref={groupRef} position={[0, yOffset, 0]}>
-      {/* Name again — glowing */}
-      <Text
-        position={[0, 1.5, -1]}
-        fontSize={isMobile ? 0.4 : 0.7}
-        color="#FFD700"
-        anchorX="center"
-        anchorY="middle"
-        letterSpacing={0.1}
-        material-emissive="#FFD700"
-        material-emissiveIntensity={0.6}
-        material-toneMapped={false}
-      >
-        BARSANA
-      </Text>
-
-      {/* Waving cat */}
+      {/* Waving 3D cat */}
       <CuteCat
-        position={[isMobile ? 0 : 2.5, -1.5, 0]}
+        position={[isMobile ? 0 : 2.5, isMobile ? -1.8 : -1.2, 0]}
         color="#FFA07A"
-        scale={isMobile ? 0.9 : 1.1}
+        scale={isMobile ? 0.95 : 1.2}
         variant="waving"
       />
 
-      {/* Maximum sparkles — celebration */}
+      {/* Sparkles celebration */}
       <Sparkles
         count={isMobile ? 40 : 80}
         scale={[viewport.width, viewport.height, 6]}
@@ -75,7 +60,7 @@ export function FinaleSection3D() {
         color="#C084FC"
       />
 
-      {/* Floating hearts — max density */}
+      {/* Floating hearts celebration */}
       <FloatingHearts
         count={isMobile ? 30 : 60}
         area={[viewport.width, viewport.height * 1.2, 5]}
@@ -100,7 +85,6 @@ export function FinaleOverlay() {
       style={{ top: `${SECTION * 100}vh` }}
     >
       <div className="text-center px-4">
-        {/* Big declaration */}
         <p className="text-white/60 text-sm md:text-base tracking-[0.3em] uppercase mb-4 fade-in-up">
           with all my heart
         </p>
@@ -113,7 +97,7 @@ export function FinaleOverlay() {
         </h1>
 
         <h2
-          className="font-display text-xl md:text-3xl text-love-gold glow-gold tracking-wider fade-in-up"
+          className="font-display text-xl md:text-3xl text-love-gold glow-gold tracking-wider fade-in-up font-semibold"
           style={{ animationDelay: '0.8s' }}
         >
           Barsana Mukhopadhyay
@@ -123,24 +107,25 @@ export function FinaleOverlay() {
           className="mt-8 fade-in-up"
           style={{ animationDelay: '1.2s' }}
         >
-          <p className="text-white/70 text-base md:text-lg font-light leading-relaxed max-w-md mx-auto font-display italic">
+          <p className="text-white/80 text-base md:text-lg font-light leading-relaxed max-w-md mx-auto font-display italic">
             &ldquo;In all the world, there is no heart for me like yours.
             In all the world, there is no love for you like mine.&rdquo;
           </p>
         </div>
 
         <div
-          className="mt-10 flex items-center justify-center gap-2 text-3xl md:text-4xl fade-in-up"
+          className="mt-10 flex items-center justify-center gap-3 text-2xl md:text-3xl fade-in-up"
           style={{ animationDelay: '1.6s' }}
         >
           <span className="animate-pulse-heart">💕</span>
-          <span className="text-white/60 text-lg font-light tracking-widest">Forever &amp; Always</span>
+          <span className="text-white/80 text-base md:text-lg font-light tracking-widest">
+            Forever &amp; Always
+          </span>
           <span className="animate-pulse-heart">💕</span>
         </div>
       </div>
 
-      {/* Footer credit */}
-      <p className="absolute bottom-6 text-white/15 text-xs tracking-widest">
+      <p className="absolute bottom-6 text-white/20 text-xs tracking-widest">
         made with all my love 💕
       </p>
     </div>
