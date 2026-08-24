@@ -14,11 +14,11 @@ interface Track {
 const playlist: Track[] = [
   {
     id: 'jadore',
-    title: "J'adore La Vie (432 Hz)",
-    artist: 'Inspired Feminine • Affirmation Song',
+    title: "J'adore La Vie",
+    artist: '432 Hz Affirmation • Affirmative',
     type: '432Hz',
-    youtubeId: 'qf46jT1h18c',
-    spotifyUri: 'https://open.spotify.com/search/J%27adore%20La%20Vie%20Inspired%20Feminine',
+    youtubeId: 'BkSAZCRdmO8',
+    spotifyUri: 'https://open.spotify.com/search/J%27adore%20La%20Vie',
   },
   {
     id: 'kesariya',
@@ -127,7 +127,7 @@ export default function MusicPlayer() {
     setIsPlaying(true);
   };
 
-  // Construct background audio stream embed URL
+  // Background Audio Stream IFrame URL
   const embedSrc = isPlayerLoaded && isPlaying
     ? `https://www.youtube-nocookie.com/embed/${currentTrack.youtubeId}?autoplay=1&enablejsapi=1&playsinline=1&controls=0&origin=${typeof window !== 'undefined' ? window.location.origin : ''}`
     : `https://www.youtube-nocookie.com/embed/${currentTrack.youtubeId}?autoplay=0&enablejsapi=1&playsinline=1&controls=0`;
