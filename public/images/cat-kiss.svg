@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="cat1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF3E0"/>
+      <stop offset="100%" stop-color="#FFE0B2"/>
+    </linearGradient>
+    <linearGradient id="cat2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F3E5F5"/>
+      <stop offset="100%" stop-color="#E1BEE7"/>
+    </linearGradient>
+  </defs>
+  <!-- Left Cat -->
+  <ellipse cx="75" cy="115" rx="42" ry="38" fill="url(#cat1)"/>
+  <polygon points="45,90 35,55 65,75" fill="#FFE0B2"/>
+  <polygon points="47,85 40,62 60,75" fill="#FF80AB"/>
+  <polygon points="85,85 95,55 102,80" fill="#FFE0B2"/>
+  <path d="M55 110 Q65 100 75 110" stroke="#333" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <!-- Right Cat -->
+  <ellipse cx="125" cy="115" rx="42" ry="38" fill="url(#cat2)"/>
+  <polygon points="155,90 165,55 135,75" fill="#E1BEE7"/>
+  <polygon points="153,85 160,62 140,75" fill="#FF80AB"/>
+  <polygon points="115,85 105,55 98,80" fill="#E1BEE7"/>
+  <path d="M125 110 Q135 100 145 110" stroke="#333" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <!-- Giant Kiss Heart in Middle -->
+  <path d="M100 55 Q100 40 85 40 Q70 40 70 55 Q70 72 100 90 Q130 72 130 55 Q130 40 115 40 Q100 40 100 55" fill="#FF1493" stroke="#FFF" stroke-width="2"/>
+  <circle cx="88" cy="48" r="4" fill="#FFF"/>
+  <!-- Kiss mark / sparkles -->
+  <text x="92" y="118" font-size="18">💋</text>
+  <circle cx="58" cy="120" r="7" fill="#FF4081" opacity="0.6"/>
+  <circle cx="142" cy="120" r="7" fill="#FF4081" opacity="0.6"/>
+</svg>

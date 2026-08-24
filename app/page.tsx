@@ -3,7 +3,10 @@
 import dynamic from 'next/dynamic';
 import LoadingScreen from '@/components/ui/LoadingScreen';
 import MusicPlayer from '@/components/ui/MusicPlayer';
+import NavigationTabs from '@/components/ui/NavigationTabs';
 import HeroSection from '@/components/sections/HeroSection';
+import GallerySection from '@/components/sections/GallerySection';
+import OurStorySection from '@/components/sections/OurStorySection';
 import LoveSection from '@/components/sections/LoveSection';
 import CatsSection from '@/components/sections/CatsSection';
 import ReasonsSection from '@/components/sections/ReasonsSection';
@@ -15,19 +18,24 @@ const Scene = dynamic(() => import('@/components/Scene'), {
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen w-full bg-love-deep text-white selection:bg-pink-500 selection:text-white">
+    <main className="relative min-h-screen w-full bg-love-deep text-white selection:bg-pink-500 selection:text-white pb-24">
       {/* Loading Screen */}
       <LoadingScreen />
 
-      {/* Liquid Glass Touch Top Music Player */}
+      {/* Liquid Glass Top Music Player (J'adore La Vie 432Hz) */}
       <MusicPlayer />
+
+      {/* Floating Liquid Glass Navigation Tabs */}
+      <NavigationTabs />
 
       {/* 3D Background Canvas (Blue to Pink Gradient Transition) */}
       <Scene />
 
-      {/* Foreground Sections in Natural Document Flow */}
+      {/* Foreground Interactive Sections */}
       <div className="relative z-10 w-full flex flex-col">
         <HeroSection />
+        <GallerySection />
+        <OurStorySection />
         <LoveSection />
         <CatsSection />
         <ReasonsSection />

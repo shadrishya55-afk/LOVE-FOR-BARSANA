@@ -12,7 +12,7 @@ const reasons = [
 
 export default function ReasonsSection() {
   return (
-    <section className="min-h-screen w-full flex flex-col items-center justify-center text-center px-4 py-20 relative z-10">
+    <section id="reasons" className="min-h-screen w-full flex flex-col items-center justify-center text-center px-4 py-20 relative z-10">
       {/* Title */}
       <div className="text-center mb-8 max-w-xl">
         <div className="inline-flex items-center gap-2 px-4 py-1 rounded-full bg-purple-500/20 border border-purple-400/40 text-purple-300 text-xs tracking-wider uppercase mb-3">

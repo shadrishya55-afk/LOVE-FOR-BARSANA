@@ -2,7 +2,7 @@
 
 export default function FinaleSection() {
   return (
-    <section className="min-h-screen w-full flex flex-col items-center justify-center text-center px-4 py-20 relative z-10">
+    <section id="finale" className="min-h-screen w-full flex flex-col items-center justify-center text-center px-4 py-20 relative z-10">
       <div className="text-center px-4 max-w-2xl">
         <div className="inline-flex items-center gap-2 px-5 py-1.5 rounded-full bg-amber-400/20 border border-amber-300/40 text-amber-200 text-xs sm:text-sm tracking-widest uppercase mb-5">
           <span>👑</span>

@@ -6,7 +6,7 @@ export default function HeroSection() {
   const basePath = process.env.NODE_ENV === 'production' ? '/LOVE-FOR-BARSANA' : '';
 
   return (
-    <section className="min-h-screen w-full flex flex-col items-center justify-center text-center px-4 py-16 relative">
+    <section id="hero" className="min-h-screen w-full flex flex-col items-center justify-center text-center px-4 py-16 relative">
       <div className="flex flex-col items-center justify-center max-w-lg w-full z-10">
         {/* Rasgulla Badge */}
         <div className="rasgulla-badge px-5 py-2 mb-5 flex items-center gap-2 shadow-lg">

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200">
+  <defs>
+    <linearGradient id="smugFur" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFFF"/>
+      <stop offset="100%" stop-color="#F3E5F5"/>
+    </linearGradient>
+  </defs>
+  <!-- Head -->
+  <ellipse cx="100" cy="105" rx="65" ry="55" fill="url(#smugFur)" stroke="#CE93D8" stroke-width="2"/>
+  <!-- Ears -->
+  <polygon points="50,75 35,25 75,55" fill="#F3E5F5"/>
+  <polygon points="52,70 42,35 70,55" fill="#FF80AB"/>
+  <polygon points="150,75 165,25 125,55" fill="#F3E5F5"/>
+  <polygon points="148,70 158,35 130,55" fill="#FF80AB"/>
+  <!-- One wink eye, one smug open eye -->
+  <path d="M55 92 Q72 75 85 92" stroke="#212121" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+  <circle cx="125" cy="88" r="12" fill="#1A237E"/>
+  <circle cx="122" cy="84" r="4" fill="#FFF"/>
+  <!-- Smug smirk (⌒‿ゝ⌒) -->
+  <polygon points="100,102 96,97 104,97" fill="#FF4081"/>
+  <path d="M85 110 Q98 125 125 106" stroke="#212121" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <!-- Blush -->
+  <circle cx="60" cy="108" r="10" fill="#FF4081" opacity="0.55"/>
+  <circle cx="140" cy="108" r="10" fill="#FF4081" opacity="0.55"/>
+  <!-- Sparkles -->
+  <polygon points="35,45 37,52 44,54 37,56 35,63 33,56 26,54 33,52" fill="#FFD700"/>
+  <text x="145" y="45" font-size="22">✨</text>
+</svg>
