@@ -99,7 +99,7 @@ export default function GallerySection() {
             {/* Photo Info with Justified Text */}
             <div className="w-full px-1 flex flex-col flex-grow">
               <div className="flex items-center justify-between gap-2 mb-2">
-                <h3 className="font-luxury font-bold text-lg sm:text-xl text-pink-200 truncate">
+                <h3 className="font-luxury font-bold text-base sm:text-xl text-pink-200 break-words">
                   {p.title}
                 </h3>
                 <span className="text-[10px] font-bold text-amber-300 bg-amber-400/20 px-2 py-0.5 rounded-full border border-amber-300/40 flex-shrink-0">
