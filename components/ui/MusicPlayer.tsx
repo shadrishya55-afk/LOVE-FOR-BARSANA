@@ -219,7 +219,7 @@ export default function MusicPlayer() {
             </span>
           </div>
           <span className="text-[10px] text-pink-200/90 font-light truncate">
-            {isPlaying ? currentTrack.artist : 'Tap to Play Music 🎵'}
+            {isPlaying ? currentTrack.artist : 'Tap to Play "FOR HER" 🎵'}
           </span>
         </div>
 
@@ -227,8 +227,8 @@ export default function MusicPlayer() {
         <button
           onClick={() => setShowPlaylist(!showPlaylist)}
           className="flex items-end gap-0.8 h-4 px-1.5 py-0.5 rounded-md hover:bg-white/10 transition-colors cursor-pointer"
-          title="Open Romantic Playlist"
-          aria-label="Open Romantic Playlist"
+          title="Open Playlist FOR HER"
+          aria-label="Open Playlist FOR HER"
         >
           {[35, 75, 50, 95, 60].map((h, i) => (
             <span
@@ -246,12 +246,12 @@ export default function MusicPlayer() {
         </button>
       </div>
 
-      {/* ── Romantic Playlist Dropdown Modal ── */}
+      {/* ── Playlist FOR HER Dropdown Modal ── */}
       {showPlaylist && (
         <div className="absolute top-14 left-0 right-0 glass-card p-3.5 shadow-2xl border border-pink-300/50 animate-fade-in-up z-50">
           <div className="flex items-center justify-between pb-2 mb-2 border-b border-white/15">
-            <span className="text-xs font-bold text-amber-200 uppercase tracking-widest flex items-center gap-1.5">
-              <span>💖</span> Romantic Playlist (Bollywood &amp; Hollywood)
+            <span className="text-xs font-bold text-amber-200 uppercase tracking-widest flex items-center gap-1.5 font-luxury">
+              <span>💖</span> FOR HER (Playlist for Barsana)
             </span>
             <button
               onClick={() => setShowPlaylist(false)}
